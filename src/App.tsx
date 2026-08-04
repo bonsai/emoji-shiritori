@@ -11,8 +11,8 @@ import {
 } from "./emojis";
 import "./App.css";
 
-const HAND_SIZE = 5;
-const CPU_INTERVAL_MS = 900;
+const HAND_SIZE = 8;
+const CPU_INTERVAL_MS = 1100;
 
 interface GameState {
   deck: Emoji[];
