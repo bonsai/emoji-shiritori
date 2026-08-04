@@ -11,18 +11,21 @@ import {
 } from "./emojis";
 import "./App.css";
 
-const HAND_SIZE = 8;
+const HAND_SIZE = 20;
 const CPU_INTERVAL_MS = 1100;
+
+type Mode = "speed" | "relax";
 
 interface GameState {
   deck: Emoji[];
   playerHand: Emoji[];
   cpuHand: Emoji[];
-  fields: [Emoji, Emoji];
+  fields: Emoji[];
 }
 
 export default function App() {
   const [lang, setLang] = useState<Lang>("ja");
+  const [mode, setMode] = useState<Mode>("relax");
   const [screen, setScreen] = useState<"menu" | "game" | "result">("menu");
   const [game, setGame] = useState<GameState | null>(null);
   const [result, setResult] = useState<"win" | "lose" | "draw" | null>(null);
@@ -44,17 +47,18 @@ export default function App() {
     const deck = shuffle(ALL_EMOJIS);
     const playerHand = deck.splice(0, HAND_SIZE);
     const cpuHand = deck.splice(0, HAND_SIZE);
-    const fields: [Emoji, Emoji] = [deck.pop()!, deck.pop()!];
+    const fieldCount = mode === "speed" ? 2 : 1;
+    const fields: Emoji[] = [];
+    for (let i = 0; i < fieldCount; i++) {
+      fields.push(deck.pop()!);
+    }
     const initial: GameState = { deck, playerHand, cpuHand, fields };
     setGame(initial);
     setResult(null);
     setScreen("game");
-  }, []);
+  }, [mode]);
 
-  function endGame(
-    newGame: GameState,
-    reason: "empty-hand" | "stalemate"
-  ) {
+  function endGame(newGame: GameState, reason: "empty-hand" | "stalemate") {
     let outcome: "win" | "lose" | "draw";
     if (reason === "empty-hand") {
       outcome = newGame.playerHand.length === 0 ? "win" : "lose";
@@ -68,32 +72,33 @@ export default function App() {
     setScreen("result");
   }
 
-  function tryRefill(newGame: GameState): GameState {
-    const { playerHand, cpuHand, fields, deck } = newGame;
-    const playerCan = playerHand.some((c) => canPlace(c, fields[0], lang) || canPlace(c, fields[1], lang));
-    const cpuCan = cpuHand.some((c) => canPlace(c, fields[0], lang) || canPlace(c, fields[1], lang));
-
-    if (!playerCan && !cpuCan) {
-      if (deck.length >= 2) {
-        return {
-          ...newGame,
-          fields: [deck[deck.length - 1], deck[deck.length - 2]],
-          deck: deck.slice(0, -2),
-        };
-      } else if (deck.length === 1) {
-        return {
-          ...newGame,
-          fields: [deck[0], newGame.fields[1]],
-          deck: [],
-        };
-      } else {
-        endGame(newGame, "stalemate");
-      }
-    }
-    return newGame;
+  function anyCanPlace(hand: Emoji[], fields: Emoji[]): boolean {
+    return hand.some((c) => fields.some((f) => canPlace(c, f, lang)));
   }
 
-  function placeCard(who: "player" | "cpu", card: Emoji, fieldIndex: 0 | 1) {
+  function tryRefill(newGame: GameState): GameState {
+    const { playerHand, cpuHand, fields, deck } = newGame;
+    if (anyCanPlace(playerHand, fields) || anyCanPlace(cpuHand, fields)) {
+      return newGame;
+    }
+    if (deck.length === 0) {
+      endGame(newGame, "stalemate");
+      return newGame;
+    }
+    const count = Math.min(fields.length, deck.length);
+    const nextFields: Emoji[] = [];
+    const nextDeck = [...deck];
+    for (let i = 0; i < count; i++) {
+      nextFields.push(nextDeck.pop()!);
+    }
+    return {
+      ...newGame,
+      fields: nextFields,
+      deck: nextDeck,
+    };
+  }
+
+  function placeCard(who: "player" | "cpu", card: Emoji, fieldIndex: number) {
     setGame((prev) => {
       if (!prev) return prev;
       const isPlayer = who === "player";
@@ -103,12 +108,12 @@ export default function App() {
       if (!canPlace(card, prev.fields[fieldIndex], lang)) return prev;
 
       const newHand = [...hand.slice(0, cardIndex), ...hand.slice(cardIndex + 1)];
+      const newFields = prev.fields.map((f, i) =>
+        i === fieldIndex ? card : f
+      );
       const newGame: GameState = {
         ...prev,
-        fields: [
-          fieldIndex === 0 ? card : prev.fields[0],
-          fieldIndex === 1 ? card : prev.fields[1],
-        ],
+        fields: newFields,
         playerHand: isPlayer ? newHand : prev.playerHand,
         cpuHand: isPlayer ? prev.cpuHand : newHand,
       };
@@ -118,18 +123,18 @@ export default function App() {
         return newGame;
       }
 
-      const refilled = tryRefill(newGame);
-      return refilled;
+      return tryRefill(newGame);
     });
     showFlash(who === "player" ? "YOU ATTACK!" : "CPU ATTACK!");
   }
 
   function playerPlace(card: Emoji) {
     if (!game || screen !== "game") return;
-    if (canPlace(card, game.fields[0], lang)) {
-      placeCard("player", card, 0);
-    } else if (canPlace(card, game.fields[1], lang)) {
-      placeCard("player", card, 1);
+    for (let i = 0; i < game.fields.length; i++) {
+      if (canPlace(card, game.fields[i], lang)) {
+        placeCard("player", card, i);
+        return;
+      }
     }
   }
 
@@ -138,13 +143,17 @@ export default function App() {
     const id = window.setInterval(() => {
       const g = gameRef.current;
       if (!g) return;
-      const options = g.cpuHand.filter(
-        (c) => canPlace(c, g.fields[0], lang) || canPlace(c, g.fields[1], lang)
-      );
+      const options: { card: Emoji; index: number }[] = [];
+      for (const card of g.cpuHand) {
+        for (let i = 0; i < g.fields.length; i++) {
+          if (canPlace(card, g.fields[i], lang)) {
+            options.push({ card, index: i });
+          }
+        }
+      }
       if (options.length === 0) return;
-      const card = options[Math.floor(Math.random() * options.length)];
-      const fieldIndex: 0 | 1 = canPlace(card, g.fields[0], lang) ? 0 : 1;
-      placeCard("cpu", card, fieldIndex);
+      const choice = options[Math.floor(Math.random() * options.length)];
+      placeCard("cpu", choice.card, choice.index);
     }, CPU_INTERVAL_MS);
     return () => window.clearInterval(id);
   }, [screen, lang]);
@@ -172,6 +181,22 @@ export default function App() {
             English
           </button>
         </div>
+        <div className="mode-select">
+          <button
+            type="button"
+            className={mode === "speed" ? "active" : ""}
+            onClick={() => setMode("speed")}
+          >
+            {t.speed}
+          </button>
+          <button
+            type="button"
+            className={mode === "relax" ? "active" : ""}
+            onClick={() => setMode("relax")}
+          >
+            {t.relax}
+          </button>
+        </div>
         <button type="button" className="start-btn" onClick={startGame}>
           {t.start}
         </button>
@@ -187,7 +212,11 @@ export default function App() {
         <button type="button" className="start-btn" onClick={startGame}>
           {t.again}
         </button>
-        <button type="button" className="menu-btn" onClick={() => setScreen("menu")}>
+        <button
+          type="button"
+          className="menu-btn"
+          onClick={() => setScreen("menu")}
+        >
           {t.menu}
         </button>
       </div>
@@ -208,7 +237,7 @@ export default function App() {
       <div className="arena">
         <div className="flash">{flash}</div>
         <div className="vs">VS</div>
-        <div className="fields">
+        <div className={`fields ${mode}`}>
           {game.fields.map((f, i) => (
             <div key={i} className="field-card">
               <div className="emoji-big">{f.emoji}</div>
@@ -228,8 +257,7 @@ export default function App() {
         <div className="label">{t.you}</div>
         <div className="hand">
           {game.playerHand.map((c) => {
-            const playable =
-              canPlace(c, game.fields[0], lang) || canPlace(c, game.fields[1], lang);
+            const playable = game.fields.some((f) => canPlace(c, f, lang));
             return (
               <button
                 key={c.emoji}
@@ -240,7 +268,9 @@ export default function App() {
               >
                 <span className="emoji">{c.emoji}</span>
                 <span className="reading">{displayName(c, lang)}</span>
-                <span className="first-char">{firstChar(displayName(c, lang))}</span>
+                <span className="first-char">
+                  {firstChar(displayName(c, lang))}
+                </span>
               </button>
             );
           })}
@@ -264,6 +294,8 @@ const TEXT = {
     draw: "引き分け",
     again: "もう一度",
     menu: "メニュー",
+    speed: "スピード（場2枚）",
+    relax: "ゆっくり（場1枚）",
   },
   en: {
     subtitle: "Speed Shiritori Battle",
@@ -278,5 +310,7 @@ const TEXT = {
     draw: "Draw",
     again: "Play Again",
     menu: "Menu",
+    speed: "Speed (2 fields)",
+    relax: "Relax (1 field)",
   },
 };

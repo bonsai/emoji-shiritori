@@ -78,7 +78,6 @@ export const ALL_EMOJIS: Emoji[] = [
   { emoji: "🏪", name: "convenience store", jaName: "コンビニ", category: "place", tags: ["c", "building", "shop"] },
   { emoji: "🏰", name: "castle", jaName: "おしろ", category: "place", tags: ["c", "building", "history"] },
   { emoji: "🏝️", name: "island", jaName: "しま", category: "place", tags: ["i", "beach", "nature"] },
-  { emoji: "🏯", name: "japanese castle", jaName: "おしろ", category: "place", tags: ["j", "building", "history"] },
   { emoji: "🚗", name: "car", jaName: "くるま", category: "vehicle", tags: ["c", "road", "transport"] },
   { emoji: "🚌", name: "bus", jaName: "バス", category: "vehicle", tags: ["b", "road", "transport"] },
   { emoji: "🚲", name: "bicycle", jaName: "じてんしゃ", category: "vehicle", tags: ["b", "road", "transport"] },
