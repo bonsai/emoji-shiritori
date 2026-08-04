@@ -153,6 +153,14 @@ pub fn candidates_for(emoji: Emoji, used: List(String)) -> List(Emoji) {
 pub fn any_candidate(prev: Emoji, used: List(String)) -> Result(Emoji, Nil) {
   case candidates_for(prev, used) {
     [] -> Error(Nil)
-    cs -> Ok(list.shuffle(cs) |> list.first() |> fn(x) { let assert Ok(x) = x x })
+    cs ->
+      Ok(
+        list.shuffle(cs)
+        |> list.first()
+        |> fn(x) {
+          let assert Ok(x) = x
+          x
+        },
+      )
   }
 }

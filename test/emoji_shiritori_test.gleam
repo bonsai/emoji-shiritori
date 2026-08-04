@@ -1,6 +1,6 @@
+import emoji
 import gleam/list
 import gleeunit
-import emoji
 
 pub fn main() -> Nil {
   gleeunit.main()

@@ -87,12 +87,18 @@ fn play(model: Model, raw_name: String) -> Model {
               case model.history {
                 [] -> add_turn(model, choice, "player")
                 [last, ..] -> {
-                  case emoji.first_char(choice.name) == emoji.last_char(last.name) {
+                  case
+                    emoji.first_char(choice.name) == emoji.last_char(last.name)
+                  {
                     True -> add_turn(model, choice, "player")
                     False ->
                       Model(
                         ..model,
-                        message: "ルール違反！「" <> last.name <> "」の最後の文字「" <> emoji.last_char(last.name) <> "」から始まる名前を選んでね。",
+                        message: "ルール違反！「"
+                          <> last.name
+                          <> "」の最後の文字「"
+                          <> emoji.last_char(last.name)
+                          <> "」から始まる名前を選んでね。",
                       )
                   }
                 }
@@ -116,14 +122,15 @@ fn add_turn(model: Model, choice: emoji.Emoji, who: String) -> Model {
     "cpu" -> "CPU: " <> choice.emoji <> " " <> choice.name
     _ -> "あなた: " <> choice.emoji <> " " <> choice.name
   }
-  let next_model = Model(
-    ..model,
-    history: new_history,
-    used: new_used,
-    input: "",
-    message: msg,
-    scores: new_scores,
-  )
+  let next_model =
+    Model(
+      ..model,
+      history: new_history,
+      used: new_used,
+      input: "",
+      message: msg,
+      scores: new_scores,
+    )
   case emoji.candidates_for(choice, new_used) {
     [] -> end_game(next_model, "もうつながる絵emojiがない！ゲームセット！")
     _ -> next_model
