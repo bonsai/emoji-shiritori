@@ -20,17 +20,16 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v6
-      - uses: erlef/setup-beam@v1
+      - uses: actions/setup-node@v4
         with:
-          otp-version: "29"
-          gleam-version: "1.17.0"
-          rebar3-version: "3"
-      - run: gleam deps download
-      - run: gleam build --target javascript
+          node-version: 22
+          cache: npm
+      - run: npm ci
+      - run: npm run build
       - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: .
+          path: ./dist
 
   deploy:
     environment:
