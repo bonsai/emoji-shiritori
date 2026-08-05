@@ -3,8 +3,6 @@ import {
   ALL_EMOJIS,
   canPlace,
   displayName,
-  firstChar,
-  lastChar,
   shuffle,
   type Emoji,
   type Lang,
@@ -27,6 +25,7 @@ export default function App() {
   const [lang, setLang] = useState<Lang>("ja");
   const [mode, setMode] = useState<Mode>("relax");
   const [screen, setScreen] = useState<"menu" | "game" | "result">("menu");
+  const [showHints, setShowHints] = useState(false);
   const [game, setGame] = useState<GameState | null>(null);
   const [result, setResult] = useState<"win" | "lose" | "draw" | null>(null);
   const [flash, setFlash] = useState<string | null>(null);
@@ -217,21 +216,30 @@ export default function App() {
           <button
             type="button"
             className={mode === "speed" ? "active" : ""}
-            onClick={() => setMode("speed")}
+            onClick={() => {
+              setMode("speed");
+              setShowHints(false);
+            }}
           >
             {t.speed}
           </button>
           <button
             type="button"
             className={mode === "relax" ? "active" : ""}
-            onClick={() => setMode("relax")}
+            onClick={() => {
+              setMode("relax");
+              setShowHints(false);
+            }}
           >
             {t.relax}
           </button>
           <button
             type="button"
             className={mode === "solo" ? "active" : ""}
-            onClick={() => setMode("solo")}
+            onClick={() => {
+              setMode("solo");
+              setShowHints(true);
+            }}
           >
             {t.solo}
           </button>
@@ -265,11 +273,7 @@ export default function App() {
   if (!game) return null;
 
   const isSolo = mode === "solo";
-  // speed: hint-off (name shown, hint chars hidden)
-  // relax: no-hint   (emoji only, UI text shown)
-  // solo:  full      (name + hint chars + UI text all shown)
   const showCardName = mode !== "relax";
-  const showHintChars = mode === "solo";
   const showUiText = true;
   const deckLabel =
     isSolo && game.deck.length === 0 ? t.infinite : game.deck.length;
@@ -290,15 +294,13 @@ export default function App() {
         {!isSolo && <div className="vs">VS</div>}
         <div className={`fields ${mode}`}>
           {game.fields.map((f, i) => (
-            <div key={i} className="field-card">
+            <div
+              key={i}
+              className={`field-card ${showHints ? "hinted" : ""}`}
+            >
               <div className="emoji-big">{f.emoji}</div>
               {showCardName && (
                 <div className="reading">{displayName(f, lang)}</div>
-              )}
-              {showHintChars && (
-                <div className="target-char">
-                  {t.next}: {lastChar(displayName(f, lang))}
-                </div>
               )}
             </div>
           ))}
@@ -308,6 +310,13 @@ export default function App() {
             {t.deck}: {deckLabel}
           </div>
         )}
+        <button
+          type="button"
+          className={`hint-toggle ${showHints ? "on" : ""}`}
+          onClick={() => setShowHints((v) => !v)}
+        >
+          {showHints ? "✨ " + t.hintOn : t.hintOff}
+        </button>
       </div>
 
       <div className="player-area">
@@ -320,18 +329,15 @@ export default function App() {
               <button
                 key={c.emoji}
                 type="button"
-                className={`hand-card ${playable ? "playable" : "disabled"}`}
+                className={`hand-card ${playable ? "playable" : "disabled"} ${
+                  playable && showHints ? "hinted" : ""
+                }`}
                 onClick={() => playerPlace(c)}
                 title={showCardName ? `${displayName(c, lang)} (${c.category})` : undefined}
               >
                 <span className="emoji">{c.emoji}</span>
                 {showCardName && (
                   <span className="reading">{displayName(c, lang)}</span>
-                )}
-                {showHintChars && (
-                  <span className="first-char">
-                    {firstChar(displayName(c, lang))}
-                  </span>
                 )}
               </button>
             );
@@ -349,8 +355,9 @@ const TEXT = {
     rule: "場の絵文字の最後の文字から始まる名前の絵文字を、素早く出そう！",
     hand: "手札",
     deck: "山札",
-    next: "つなぐ",
     you: "あなた",
+    hintOn: "ヒントOFF",
+    hintOff: "ヒントON",
     win: "勝利！",
     lose: "敗北…",
     draw: "引き分け",
@@ -367,8 +374,9 @@ const TEXT = {
     rule: "Quickly play an emoji whose name starts with the last letter on the field!",
     hand: "Hand",
     deck: "Deck",
-    next: "Next",
     you: "You",
+    hintOn: "Hints OFF",
+    hintOff: "Hints ON",
     win: "You Win!",
     lose: "You Lose…",
     draw: "Draw",
