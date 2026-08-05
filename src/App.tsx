@@ -285,11 +285,13 @@ export default function App() {
           {game.fields.map((f, i) => (
             <div key={i} className="field-card">
               <div className="emoji-big">{f.emoji}</div>
-              <div className="reading">{displayName(f, lang)}</div>
               {mode !== "solo" && (
-                <div className="target-char">
-                  {t.next}: {lastChar(displayName(f, lang))}
-                </div>
+                <>
+                  <div className="reading">{displayName(f, lang)}</div>
+                  <div className="target-char">
+                    {t.next}: {lastChar(displayName(f, lang))}
+                  </div>
+                </>
               )}
             </div>
           ))}
@@ -315,10 +317,14 @@ export default function App() {
                 title={`${displayName(c, lang)} (${c.category})`}
               >
                 <span className="emoji">{c.emoji}</span>
-                <span className="reading">{displayName(c, lang)}</span>
-                <span className="first-char">
-                  {firstChar(displayName(c, lang))}
-                </span>
+                {mode !== "solo" && (
+                  <>
+                    <span className="reading">{displayName(c, lang)}</span>
+                    <span className="first-char">
+                      {firstChar(displayName(c, lang))}
+                    </span>
+                  </>
+                )}
               </button>
             );
           })}
