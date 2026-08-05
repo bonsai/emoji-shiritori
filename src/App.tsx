@@ -14,7 +14,7 @@ import "./App.css";
 const HAND_SIZE = 20;
 const CPU_INTERVAL_MS = 1100;
 
-type Mode = "speed" | "relax";
+type Mode = "speed" | "relax" | "solo";
 
 interface GameState {
   deck: Emoji[];
@@ -46,7 +46,7 @@ export default function App() {
   const startGame = useCallback(() => {
     const deck = shuffle(ALL_EMOJIS);
     const playerHand = deck.splice(0, HAND_SIZE);
-    const cpuHand = deck.splice(0, HAND_SIZE);
+    const cpuHand = mode === "solo" ? [] : deck.splice(0, HAND_SIZE);
     const fieldCount = mode === "speed" ? 2 : 1;
     const fields: Emoji[] = [];
     for (let i = 0; i < fieldCount; i++) {
@@ -98,6 +98,30 @@ export default function App() {
     };
   }
 
+  function refillSolo(newGame: GameState): GameState {
+    const need = HAND_SIZE - newGame.playerHand.length;
+    if (need <= 0) return newGame;
+    const used = new Set(
+      [...newGame.playerHand, ...newGame.fields].map((e) => e.emoji)
+    );
+    let deck = [...newGame.deck];
+    const drawn: Emoji[] = [];
+    for (let i = 0; i < need; i++) {
+      if (deck.length === 0) {
+        const fresh = shuffle(ALL_EMOJIS.filter((e) => !used.has(e.emoji)));
+        deck = fresh.length > 0 ? fresh : shuffle(ALL_EMOJIS);
+      }
+      const card = deck.pop()!;
+      used.add(card.emoji);
+      drawn.push(card);
+    }
+    return {
+      ...newGame,
+      playerHand: [...newGame.playerHand, ...drawn],
+      deck,
+    };
+  }
+
   function placeCard(who: "player" | "cpu", card: Emoji, fieldIndex: number) {
     setGame((prev) => {
       if (!prev) return prev;
@@ -105,7 +129,7 @@ export default function App() {
       const hand = isPlayer ? prev.playerHand : prev.cpuHand;
       const cardIndex = hand.findIndex((c) => c.emoji === card.emoji);
       if (cardIndex === -1) return prev;
-      if (!canPlace(card, prev.fields[fieldIndex], lang)) return prev;
+      if (mode !== "solo" && !canPlace(card, prev.fields[fieldIndex], lang)) return prev;
 
       const newHand = [...hand.slice(0, cardIndex), ...hand.slice(cardIndex + 1)];
       const newFields = prev.fields.map((f, i) =>
@@ -117,6 +141,10 @@ export default function App() {
         playerHand: isPlayer ? newHand : prev.playerHand,
         cpuHand: isPlayer ? prev.cpuHand : newHand,
       };
+
+      if (mode === "solo") {
+        return refillSolo(newGame);
+      }
 
       if (newHand.length === 0) {
         endGame(newGame, "empty-hand");
@@ -130,6 +158,10 @@ export default function App() {
 
   function playerPlace(card: Emoji) {
     if (!game || screen !== "game") return;
+    if (mode === "solo") {
+      placeCard("player", card, 0);
+      return;
+    }
     for (let i = 0; i < game.fields.length; i++) {
       if (canPlace(card, game.fields[i], lang)) {
         placeCard("player", card, i);
@@ -139,7 +171,7 @@ export default function App() {
   }
 
   useEffect(() => {
-    if (screen !== "game") return;
+    if (screen !== "game" || mode === "solo") return;
     const id = window.setInterval(() => {
       const g = gameRef.current;
       if (!g) return;
@@ -156,7 +188,7 @@ export default function App() {
       placeCard("cpu", choice.card, choice.index);
     }, CPU_INTERVAL_MS);
     return () => window.clearInterval(id);
-  }, [screen, lang]);
+  }, [screen, lang, mode]);
 
   const t = TEXT[lang];
 
@@ -196,6 +228,13 @@ export default function App() {
           >
             {t.relax}
           </button>
+          <button
+            type="button"
+            className={mode === "solo" ? "active" : ""}
+            onClick={() => setMode("solo")}
+          >
+            {t.solo}
+          </button>
         </div>
         <button type="button" className="start-btn" onClick={startGame}>
           {t.start}
@@ -225,31 +264,38 @@ export default function App() {
 
   if (!game) return null;
 
+  const deckLabel =
+    mode === "solo" && game.deck.length === 0 ? t.infinite : game.deck.length;
+
   return (
     <div className="battle">
-      <div className="cpu-area">
-        <div className="label">CPU</div>
-        <div className="deck-count">
-          {t.hand}: {game.cpuHand.length}
+      {mode !== "solo" && (
+        <div className="cpu-area">
+          <div className="label">CPU</div>
+          <div className="deck-count">
+            {t.hand}: {game.cpuHand.length}
+          </div>
         </div>
-      </div>
+      )}
 
       <div className="arena">
         <div className="flash">{flash}</div>
-        <div className="vs">VS</div>
+        {mode !== "solo" && <div className="vs">VS</div>}
         <div className={`fields ${mode}`}>
           {game.fields.map((f, i) => (
             <div key={i} className="field-card">
               <div className="emoji-big">{f.emoji}</div>
               <div className="reading">{displayName(f, lang)}</div>
-              <div className="target-char">
-                {t.next}: {lastChar(displayName(f, lang))}
-              </div>
+              {mode !== "solo" && (
+                <div className="target-char">
+                  {t.next}: {lastChar(displayName(f, lang))}
+                </div>
+              )}
             </div>
           ))}
         </div>
         <div className="deck-remain">
-          {t.deck}: {game.deck.length}
+          {t.deck}: {deckLabel}
         </div>
       </div>
 
@@ -257,7 +303,9 @@ export default function App() {
         <div className="label">{t.you}</div>
         <div className="hand">
           {game.playerHand.map((c) => {
-            const playable = game.fields.some((f) => canPlace(c, f, lang));
+            const playable =
+              mode === "solo" ||
+              game.fields.some((f) => canPlace(c, f, lang));
             return (
               <button
                 key={c.emoji}
@@ -296,6 +344,8 @@ const TEXT = {
     menu: "メニュー",
     speed: "スピード（場2枚）",
     relax: "ゆっくり（場1枚）",
+    solo: "ひとり無限（自由配置）",
+    infinite: "∞",
   },
   en: {
     subtitle: "Speed Shiritori Battle",
@@ -312,5 +362,7 @@ const TEXT = {
     menu: "Menu",
     speed: "Speed (2 fields)",
     relax: "Relax (1 field)",
+    solo: "Solo Infinite",
+    infinite: "∞",
   },
 };
