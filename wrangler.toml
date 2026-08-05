@@ -1,0 +1,12 @@
+name = "emoji-shiritori-api"
+main = "worker/index.js"
+compatibility_date = "2025-01-01"
+
+[observability]
+enabled = true
+
+# 今後 D1 拡張時に有効化
+# [[d1_databases]]
+# binding = "DB"
+# database_name = "emoji-shiritori"
+# database_id = "<D1_DATABASE_ID>"
