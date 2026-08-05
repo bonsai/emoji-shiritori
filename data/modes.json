@@ -1,0 +1,31 @@
+{
+  "modes": [
+    {
+      "id": "speed",
+      "fieldCount": 2,
+      "cpu": true,
+      "shiritoriRule": true,
+      "endCondition": "hand-empty-or-stalemate",
+      "display": "hint-off",
+      "label": { "ja": "スピード（場2枚）", "en": "Speed (2 fields)" }
+    },
+    {
+      "id": "relax",
+      "fieldCount": 1,
+      "cpu": true,
+      "shiritoriRule": true,
+      "endCondition": "hand-empty-or-stalemate",
+      "display": "no-hint",
+      "label": { "ja": "ゆっくり（場1枚）", "en": "Relax (1 field)" }
+    },
+    {
+      "id": "solo",
+      "fieldCount": 1,
+      "cpu": false,
+      "shiritoriRule": false,
+      "endCondition": "infinite",
+      "display": "full",
+      "label": { "ja": "ひとり無限", "en": "Solo Infinite" }
+    }
+  ]
+}

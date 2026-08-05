@@ -1,0 +1,7 @@
+{
+  "handSize": 20,
+  "fieldCount": 1,
+  "cpuIntervalMs": 1100,
+  "hintsDefault": false,
+  "mode": "relax"
+}

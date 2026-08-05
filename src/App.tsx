@@ -7,12 +7,15 @@ import {
   type Emoji,
   type Lang,
 } from "./emojis";
+import {
+  DEFAULT_BALANCE,
+  buildBalance,
+  fetchBalanceFromConfig,
+  parseBalanceFromHash,
+  type GameBalance,
+  type Mode,
+} from "./balance";
 import "./App.css";
-
-const HAND_SIZE = 20;
-const CPU_INTERVAL_MS = 1100;
-
-type Mode = "speed" | "relax" | "solo";
 
 interface GameState {
   deck: Emoji[];
@@ -26,6 +29,8 @@ export default function App() {
   const [mode, setMode] = useState<Mode>("relax");
   const [screen, setScreen] = useState<"menu" | "game" | "result">("menu");
   const [showHints, setShowHints] = useState(false);
+  const [balance, setBalance] = useState<GameBalance>(DEFAULT_BALANCE);
+  const [balanceNote, setBalanceNote] = useState<string | null>(null);
   const [game, setGame] = useState<GameState | null>(null);
   const [result, setResult] = useState<"win" | "lose" | "draw" | null>(null);
   const [flash, setFlash] = useState<string | null>(null);
@@ -33,8 +38,35 @@ export default function App() {
   const gameRef = useRef<GameState | null>(null);
 
   useEffect(() => {
-    gameRef.current = game;
-  }, [game]);
+    const source = parseBalanceFromHash(window.location.hash);
+    let next = buildBalance(DEFAULT_BALANCE, source.hash);
+    if (source.configUrl) {
+      let cancelled = false;
+      fetchBalanceFromConfig(source.configUrl)
+        .then((remote) => {
+          if (cancelled) return;
+          next = buildBalance(next, remote);
+          setBalance(next);
+          setMode(next.mode);
+          setShowHints(next.hintsDefault);
+          setBalanceNote(`config: ${source.configUrl}`);
+        })
+        .catch((err) => {
+          if (cancelled) return;
+          console.warn("config fetch failed:", err);
+          setBalanceNote("config error");
+        });
+      return () => {
+        cancelled = true;
+      };
+    }
+    setBalance(next);
+    setMode(next.mode);
+    setShowHints(next.hintsDefault);
+    if (Object.keys(source.hash).length > 0) {
+      setBalanceNote("url balance");
+    }
+  }, []);
 
   function showFlash(text: string) {
     if (flashTimer.current) window.clearTimeout(flashTimer.current);
@@ -44,9 +76,10 @@ export default function App() {
 
   const startGame = useCallback(() => {
     const deck = shuffle(ALL_EMOJIS);
-    const playerHand = deck.splice(0, HAND_SIZE);
-    const cpuHand = mode === "solo" ? [] : deck.splice(0, HAND_SIZE);
-    const fieldCount = mode === "speed" ? 2 : 1;
+    const handSize = Math.min(balance.handSize, deck.length);
+    const playerHand = deck.splice(0, handSize);
+    const cpuHand = mode === "solo" ? [] : deck.splice(0, handSize);
+    const fieldCount = Math.max(1, Math.min(balance.fieldCount, deck.length));
     const fields: Emoji[] = [];
     for (let i = 0; i < fieldCount; i++) {
       fields.push(deck.pop()!);
@@ -55,7 +88,7 @@ export default function App() {
     setGame(initial);
     setResult(null);
     setScreen("game");
-  }, [mode]);
+  }, [mode, balance]);
 
   function endGame(newGame: GameState, reason: "empty-hand" | "stalemate") {
     let outcome: "win" | "lose" | "draw";
@@ -98,7 +131,7 @@ export default function App() {
   }
 
   function refillSolo(newGame: GameState): GameState {
-    const need = HAND_SIZE - newGame.playerHand.length;
+    const need = balance.handSize - newGame.playerHand.length;
     if (need <= 0) return newGame;
     const used = new Set(
       [...newGame.playerHand, ...newGame.fields].map((e) => e.emoji)
@@ -185,9 +218,9 @@ export default function App() {
       if (options.length === 0) return;
       const choice = options[Math.floor(Math.random() * options.length)];
       placeCard("cpu", choice.card, choice.index);
-    }, CPU_INTERVAL_MS);
+    }, balance.cpuIntervalMs);
     return () => window.clearInterval(id);
-  }, [screen, lang, mode]);
+  }, [screen, lang, mode, balance.cpuIntervalMs]);
 
   const t = TEXT[lang];
 
@@ -248,6 +281,11 @@ export default function App() {
           {t.start}
         </button>
         <p className="rule">{t.rule}</p>
+        <p className="balance-note">
+          hand {balance.handSize} / fields {balance.fieldCount} / cpu{" "}
+          {balance.cpuIntervalMs}ms / hints {showHints ? "on" : "off"}
+          {balanceNote ? ` — ${balanceNote}` : ""}
+        </p>
       </div>
     );
   }
