@@ -252,31 +252,6 @@ body {
   background: rgba(255, 46, 99, 0.15);
 }
 
-.submode-select {
-  display: flex;
-  gap: 0.5rem;
-  flex-wrap: wrap;
-  justify-content: center;
-  margin-bottom: 1.5rem;
-  width: 100%;
-  max-width: 320px;
-}
-
-.submode-select button {
-  padding: 0.5rem 0.8rem;
-  border: 2px solid var(--muted);
-  background: transparent;
-  color: var(--text);
-  border-radius: 999px;
-  font-size: 0.85rem;
-  cursor: pointer;
-}
-
-.submode-select button.active {
-  border-color: var(--accent2);
-  background: rgba(0, 212, 255, 0.15);
-}
-
 .fields.speed {
   flex-direction: row;
 }

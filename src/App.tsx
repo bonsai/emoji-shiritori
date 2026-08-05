@@ -16,8 +16,6 @@ const CPU_INTERVAL_MS = 1100;
 
 type Mode = "speed" | "relax" | "solo";
 
-type SoloDisplay = "hint-off" | "no-hint" | "no-text";
-
 interface GameState {
   deck: Emoji[];
   playerHand: Emoji[];
@@ -28,7 +26,6 @@ interface GameState {
 export default function App() {
   const [lang, setLang] = useState<Lang>("ja");
   const [mode, setMode] = useState<Mode>("relax");
-  const [soloDisplay, setSoloDisplay] = useState<SoloDisplay>("no-text");
   const [screen, setScreen] = useState<"menu" | "game" | "result">("menu");
   const [game, setGame] = useState<GameState | null>(null);
   const [result, setResult] = useState<"win" | "lose" | "draw" | null>(null);
@@ -239,20 +236,6 @@ export default function App() {
             {t.solo}
           </button>
         </div>
-        {mode === "solo" && (
-          <div className="submode-select">
-            {(["hint-off", "no-hint", "no-text"] as SoloDisplay[]).map((d) => (
-              <button
-                key={d}
-                type="button"
-                className={soloDisplay === d ? "active" : ""}
-                onClick={() => setSoloDisplay(d)}
-              >
-                {t[d]}
-              </button>
-            ))}
-          </div>
-        )}
         <button type="button" className="start-btn" onClick={startGame}>
           {t.start}
         </button>
@@ -282,9 +265,12 @@ export default function App() {
   if (!game) return null;
 
   const isSolo = mode === "solo";
-  const showHintChars = !isSolo || soloDisplay === "hint-off";
-  const showCardName = !isSolo || soloDisplay === "hint-off";
-  const showUiText = !isSolo || soloDisplay !== "no-text";
+  // speed: hint-off (name shown, hint chars hidden)
+  // relax: no-hint   (emoji only, UI text shown)
+  // solo:  full      (name + hint chars + UI text all shown)
+  const showCardName = mode !== "relax";
+  const showHintChars = mode === "solo";
+  const showUiText = true;
   const deckLabel =
     isSolo && game.deck.length === 0 ? t.infinite : game.deck.length;
 
@@ -370,13 +356,10 @@ const TEXT = {
     draw: "引き分け",
     again: "もう一度",
     menu: "メニュー",
-    speed: "スピード（場2枚）",
-    relax: "ゆっくり（場1枚）",
-    solo: "ひとり無限（自由配置）",
+    speed: "スピード（場2枚・ヒント文字なし）",
+    relax: "ゆっくり（場1枚・ヒントなし）",
+    solo: "ひとり無限（自由配置・全表示）",
     infinite: "∞",
-    "hint-off": "ヒント文字なし",
-    "no-hint": "ヒントなし",
-    "no-text": "文字なし",
   },
   en: {
     subtitle: "Speed Shiritori Battle",
@@ -391,12 +374,9 @@ const TEXT = {
     draw: "Draw",
     again: "Play Again",
     menu: "Menu",
-    speed: "Speed (2 fields)",
-    relax: "Relax (1 field)",
-    solo: "Solo Infinite",
+    speed: "Speed (2 fields, no hint chars)",
+    relax: "Relax (1 field, no hints)",
+    solo: "Solo Infinite (free place, all shown)",
     infinite: "∞",
-    "hint-off": "No hint chars",
-    "no-hint": "No hints",
-    "no-text": "No text",
   },
 };
