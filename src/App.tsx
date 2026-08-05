@@ -16,6 +16,8 @@ const CPU_INTERVAL_MS = 1100;
 
 type Mode = "speed" | "relax" | "solo";
 
+type SoloDisplay = "hint-off" | "no-hint" | "no-text";
+
 interface GameState {
   deck: Emoji[];
   playerHand: Emoji[];
@@ -26,6 +28,7 @@ interface GameState {
 export default function App() {
   const [lang, setLang] = useState<Lang>("ja");
   const [mode, setMode] = useState<Mode>("relax");
+  const [soloDisplay, setSoloDisplay] = useState<SoloDisplay>("no-text");
   const [screen, setScreen] = useState<"menu" | "game" | "result">("menu");
   const [game, setGame] = useState<GameState | null>(null);
   const [result, setResult] = useState<"win" | "lose" | "draw" | null>(null);
@@ -236,6 +239,20 @@ export default function App() {
             {t.solo}
           </button>
         </div>
+        {mode === "solo" && (
+          <div className="submode-select">
+            {(["hint-off", "no-hint", "no-text"] as SoloDisplay[]).map((d) => (
+              <button
+                key={d}
+                type="button"
+                className={soloDisplay === d ? "active" : ""}
+                onClick={() => setSoloDisplay(d)}
+              >
+                {t[d]}
+              </button>
+            ))}
+          </div>
+        )}
         <button type="button" className="start-btn" onClick={startGame}>
           {t.start}
         </button>
@@ -264,12 +281,16 @@ export default function App() {
 
   if (!game) return null;
 
+  const isSolo = mode === "solo";
+  const showHintChars = !isSolo || soloDisplay === "hint-off";
+  const showCardName = !isSolo || soloDisplay === "hint-off";
+  const showUiText = !isSolo || soloDisplay !== "no-text";
   const deckLabel =
-    mode === "solo" && game.deck.length === 0 ? t.infinite : game.deck.length;
+    isSolo && game.deck.length === 0 ? t.infinite : game.deck.length;
 
   return (
     <div className="battle">
-      {mode !== "solo" && (
+      {showUiText && !isSolo && (
         <div className="cpu-area">
           <div className="label">CPU</div>
           <div className="deck-count">
@@ -279,51 +300,52 @@ export default function App() {
       )}
 
       <div className="arena">
-        <div className="flash">{flash}</div>
-        {mode !== "solo" && <div className="vs">VS</div>}
+        {showUiText && <div className="flash">{flash}</div>}
+        {!isSolo && <div className="vs">VS</div>}
         <div className={`fields ${mode}`}>
           {game.fields.map((f, i) => (
             <div key={i} className="field-card">
               <div className="emoji-big">{f.emoji}</div>
-              {mode !== "solo" && (
-                <>
-                  <div className="reading">{displayName(f, lang)}</div>
-                  <div className="target-char">
-                    {t.next}: {lastChar(displayName(f, lang))}
-                  </div>
-                </>
+              {showCardName && (
+                <div className="reading">{displayName(f, lang)}</div>
+              )}
+              {showHintChars && (
+                <div className="target-char">
+                  {t.next}: {lastChar(displayName(f, lang))}
+                </div>
               )}
             </div>
           ))}
         </div>
-        <div className="deck-remain">
-          {t.deck}: {deckLabel}
-        </div>
+        {showUiText && (
+          <div className="deck-remain">
+            {t.deck}: {deckLabel}
+          </div>
+        )}
       </div>
 
       <div className="player-area">
-        <div className="label">{t.you}</div>
+        {showUiText && <div className="label">{t.you}</div>}
         <div className="hand">
           {game.playerHand.map((c) => {
             const playable =
-              mode === "solo" ||
-              game.fields.some((f) => canPlace(c, f, lang));
+              isSolo || game.fields.some((f) => canPlace(c, f, lang));
             return (
               <button
                 key={c.emoji}
                 type="button"
                 className={`hand-card ${playable ? "playable" : "disabled"}`}
                 onClick={() => playerPlace(c)}
-                title={`${displayName(c, lang)} (${c.category})`}
+                title={showCardName ? `${displayName(c, lang)} (${c.category})` : undefined}
               >
                 <span className="emoji">{c.emoji}</span>
-                {mode !== "solo" && (
-                  <>
-                    <span className="reading">{displayName(c, lang)}</span>
-                    <span className="first-char">
-                      {firstChar(displayName(c, lang))}
-                    </span>
-                  </>
+                {showCardName && (
+                  <span className="reading">{displayName(c, lang)}</span>
+                )}
+                {showHintChars && (
+                  <span className="first-char">
+                    {firstChar(displayName(c, lang))}
+                  </span>
                 )}
               </button>
             );
@@ -352,6 +374,9 @@ const TEXT = {
     relax: "ゆっくり（場1枚）",
     solo: "ひとり無限（自由配置）",
     infinite: "∞",
+    "hint-off": "ヒント文字なし",
+    "no-hint": "ヒントなし",
+    "no-text": "文字なし",
   },
   en: {
     subtitle: "Speed Shiritori Battle",
@@ -370,5 +395,8 @@ const TEXT = {
     relax: "Relax (1 field)",
     solo: "Solo Infinite",
     infinite: "∞",
+    "hint-off": "No hint chars",
+    "no-hint": "No hints",
+    "no-text": "No text",
   },
 };
