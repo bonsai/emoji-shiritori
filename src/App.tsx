@@ -37,49 +37,12 @@ export default function App() {
   const flashTimer = useRef<number | null>(null);
   const gameRef = useRef<GameState | null>(null);
 
-  useEffect(() => {
-    const source = parseBalanceFromHash(window.location.hash);
-    let next = buildBalance(DEFAULT_BALANCE, source.hash);
-    if (source.configUrl) {
-      let cancelled = false;
-      fetchBalanceFromConfig(source.configUrl)
-        .then((remote) => {
-          if (cancelled) return;
-          next = buildBalance(next, remote);
-          setBalance(next);
-          setMode(next.mode);
-          setShowHints(next.hintsDefault);
-          setBalanceNote(`config: ${source.configUrl}`);
-        })
-        .catch((err) => {
-          if (cancelled) return;
-          console.warn("config fetch failed:", err);
-          setBalanceNote("config error");
-        });
-      return () => {
-        cancelled = true;
-      };
-    }
-    setBalance(next);
-    setMode(next.mode);
-    setShowHints(next.hintsDefault);
-    if (Object.keys(source.hash).length > 0) {
-      setBalanceNote("url balance");
-    }
-  }, []);
-
-  function showFlash(text: string) {
-    if (flashTimer.current) window.clearTimeout(flashTimer.current);
-    setFlash(text);
-    flashTimer.current = window.setTimeout(() => setFlash(null), 700);
-  }
-
-  const startGame = useCallback(() => {
+  const beginGame = useCallback((bal: GameBalance, m: Mode) => {
     const deck = shuffle(ALL_EMOJIS);
-    const handSize = Math.min(balance.handSize, deck.length);
+    const handSize = Math.min(bal.handSize, deck.length);
     const playerHand = deck.splice(0, handSize);
-    const cpuHand = mode === "solo" ? [] : deck.splice(0, handSize);
-    const fieldCount = Math.max(1, Math.min(balance.fieldCount, deck.length));
+    const cpuHand = m === "solo" ? [] : deck.splice(0, handSize);
+    const fieldCount = Math.max(1, Math.min(bal.fieldCount, deck.length));
     const fields: Emoji[] = [];
     for (let i = 0; i < fieldCount; i++) {
       fields.push(deck.pop()!);
@@ -88,7 +51,56 @@ export default function App() {
     setGame(initial);
     setResult(null);
     setScreen("game");
-  }, [mode, balance]);
+  }, []);
+
+  useEffect(() => {
+    const source = parseBalanceFromHash(window.location.hash);
+    const hasParams = Object.keys(source.hash).length > 0;
+    if (source.configUrl) {
+      let cancelled = false;
+      fetchBalanceFromConfig(source.configUrl)
+        .then((remote) => {
+          if (cancelled) return;
+          const next = buildBalance(DEFAULT_BALANCE, source.hash, remote);
+          setBalance(next);
+          setMode(next.mode);
+          setShowHints(next.hintsDefault);
+          setBalanceNote(`config: ${source.configUrl}`);
+          beginGame(next, next.mode);
+        })
+        .catch((err) => {
+          if (cancelled) return;
+          console.warn("config fetch failed:", err);
+          const next = buildBalance(DEFAULT_BALANCE, source.hash);
+          setBalance(next);
+          setMode(next.mode);
+          setShowHints(next.hintsDefault);
+          setBalanceNote("config error");
+          beginGame(next, next.mode);
+        });
+      return () => {
+        cancelled = true;
+      };
+    }
+    const next = buildBalance(DEFAULT_BALANCE, source.hash);
+    setBalance(next);
+    setMode(next.mode);
+    setShowHints(next.hintsDefault);
+    if (hasParams) {
+      setBalanceNote("url balance");
+      beginGame(next, next.mode);
+    }
+  }, [beginGame]);
+
+  function showFlash(text: string) {
+    if (flashTimer.current) window.clearTimeout(flashTimer.current);
+    setFlash(text);
+    flashTimer.current = window.setTimeout(() => setFlash(null), 700);
+  }
+
+  const startGame = useCallback(() => {
+    beginGame(balance, mode);
+  }, [beginGame, balance, mode]);
 
   function endGame(newGame: GameState, reason: "empty-hand" | "stalemate") {
     let outcome: "win" | "lose" | "draw";
