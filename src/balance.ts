@@ -34,7 +34,8 @@ export function parseBalanceFromHash(hash: string): BalanceSource {
   const source: BalanceSource = { hash: {} };
   if (!hash.startsWith("#/")) return source;
   const segments = hash.slice(2).split("/").filter(Boolean);
-  for (const seg of segments) {
+  for (let i = 0; i < segments.length; i++) {
+    const seg = segments[i];
     const eq = seg.indexOf("=");
     const key = eq === -1 ? seg : seg.slice(0, eq);
     const val = eq === -1 ? "" : seg.slice(eq + 1);
@@ -62,9 +63,13 @@ export function parseBalanceFromHash(hash: string): BalanceSource {
         if (m !== undefined) source.hash.mode = m;
         break;
       }
-      case "config":
-        source.configUrl = val;
+      case "config": {
+        const rest = segments.slice(i + 1).join("/");
+        source.configUrl = val.endsWith(":")
+          ? `${val}//${rest}`
+          : val + (rest ? "/" + rest : "");
         break;
+      }
     }
   }
   return source;

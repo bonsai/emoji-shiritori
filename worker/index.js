@@ -12,7 +12,7 @@ const routes = {
 };
 
 export default {
-  async fetch(request, env) {
+  async fetch(request, _env) {
     const url = new URL(request.url);
 
     const cors = {

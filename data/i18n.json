@@ -16,7 +16,18 @@
     "speed": "スピード（場2枚）",
     "relax": "ゆっくり（場1枚）",
     "solo": "ひとり無限",
-    "infinite": "∞"
+    "infinite": "∞",
+    "prologueTitle": "第1章「自然」",
+    "prologue": "謎のCPUが自然エリアに現れた！ 立ち向かえ！",
+    "prologueStart": "出撃！",
+    "storyDefeat": "自然エリアで敗れた… 「食べ物エリア」で修行を積もう！",
+    "storyDefeatBtn": "修行に出る",
+    "storyTrainingBanner": "修行中… 食べ物を制覇せよ！",
+    "revive": "復活！",
+    "reviveNote": "修行の成果でCPUを打ち倒した！ 絵文字世界に平和が戻った！",
+    "backToBattle": "決戦に挑む",
+    "practice": "修行する",
+    "practicePrompt": "食べ物の絵文字を練習しよう！"
   },
   "en": {
     "subtitle": "Speed Shiritori Battle",
@@ -35,6 +46,17 @@
     "speed": "Speed (2 fields)",
     "relax": "Relax (1 field)",
     "solo": "Solo Infinite",
-    "infinite": "∞"
+    "infinite": "∞",
+    "prologueTitle": "Ch.1 \"Nature\"",
+    "prologue": "A mysterious CPU appears in the Nature zone! Confront it!",
+    "prologueStart": "Sortie!",
+    "storyDefeat": "Defeated in Nature… Train in the \"Food\" zone!",
+    "storyDefeatBtn": "Go Train",
+    "storyTrainingBanner": "Training… Master the Food category!",
+    "revive": "Revived!",
+    "reviveNote": "Your training paid off — the CPU is defeated! Peace returns!",
+    "backToBattle": "Final Battle",
+    "practice": "Train",
+    "practicePrompt": "Practice with Food emojis!"
   }
 }

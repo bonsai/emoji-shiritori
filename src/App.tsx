@@ -17,11 +17,33 @@ import {
 } from "./balance";
 import "./App.css";
 
+const STORY_DECK: Record<string, string[]> = {
+  __first: ["nature", "plant", "sky"],
+  lose: ["food", "fruit", "vegetable", "drink"],
+  practice: ["food", "fruit", "vegetable", "drink"],
+  comeback: [],
+};
+
+function getStoryDeck(onboarding: Onboarding): Emoji[] {
+  const cats = STORY_DECK[onboarding ?? "__first"];
+  if (!cats || cats.length === 0) return ALL_EMOJIS;
+  return ALL_EMOJIS.filter((e) => cats.includes(e.category));
+}
+
 interface GameState {
   deck: Emoji[];
   playerHand: Emoji[];
   cpuHand: Emoji[];
   fields: Emoji[];
+}
+
+type Onboarding = "lose" | "practice" | "comeback" | null;
+
+const ONBOARDING_KEY = "emoji-shiritori.onboarding";
+const ONBOARDING_DONE = "done";
+
+function isOnboardingDone(): boolean {
+  return window.localStorage.getItem(ONBOARDING_KEY) === ONBOARDING_DONE;
 }
 
 export default function App() {
@@ -33,12 +55,15 @@ export default function App() {
   const [balanceNote, setBalanceNote] = useState<string | null>(null);
   const [game, setGame] = useState<GameState | null>(null);
   const [result, setResult] = useState<"win" | "lose" | "draw" | null>(null);
+  const [revive, setRevive] = useState(false);
+  const [onboarding, setOnboarding] = useState<Onboarding>(null);
+  const [comebackMode, setComebackMode] = useState<Mode>("relax");
   const [flash, setFlash] = useState<string | null>(null);
   const flashTimer = useRef<number | null>(null);
   const gameRef = useRef<GameState | null>(null);
 
-  const beginGame = useCallback((bal: GameBalance, m: Mode) => {
-    const deck = shuffle(ALL_EMOJIS);
+  const beginGame = useCallback((bal: GameBalance, m: Mode, deckPool?: Emoji[]) => {
+    const deck = shuffle(deckPool ?? ALL_EMOJIS);
     const handSize = Math.min(bal.handSize, deck.length);
     const playerHand = deck.splice(0, handSize);
     const cpuHand = m === "solo" ? [] : deck.splice(0, handSize);
@@ -66,7 +91,8 @@ export default function App() {
           setMode(next.mode);
           setShowHints(next.hintsDefault);
           setBalanceNote(`config: ${source.configUrl}`);
-          beginGame(next, next.mode);
+          const pool = !isOnboardingDone() ? getStoryDeck(null) : undefined;
+          beginGame(next, next.mode, pool);
         })
         .catch((err) => {
           if (cancelled) return;
@@ -76,7 +102,8 @@ export default function App() {
           setMode(next.mode);
           setShowHints(next.hintsDefault);
           setBalanceNote("config error");
-          beginGame(next, next.mode);
+          const pool = !isOnboardingDone() ? getStoryDeck(null) : undefined;
+          beginGame(next, next.mode, pool);
         });
       return () => {
         cancelled = true;
@@ -88,7 +115,8 @@ export default function App() {
     setShowHints(next.hintsDefault);
     if (hasParams) {
       setBalanceNote("url balance");
-      beginGame(next, next.mode);
+      const pool = !isOnboardingDone() ? getStoryDeck(null) : undefined;
+      beginGame(next, next.mode, pool);
     }
   }, [beginGame]);
 
@@ -99,7 +127,10 @@ export default function App() {
   }
 
   const startGame = useCallback(() => {
-    beginGame(balance, mode);
+    setRevive(false);
+    setOnboarding(null);
+    const pool = !isOnboardingDone() ? getStoryDeck(null) : undefined;
+    beginGame(balance, mode, pool);
   }, [beginGame, balance, mode]);
 
   function endGame(newGame: GameState, reason: "empty-hand" | "stalemate") {
@@ -111,9 +142,39 @@ export default function App() {
       const c = newGame.cpuHand.length;
       outcome = p < c ? "win" : c < p ? "lose" : "draw";
     }
+    if (outcome === "win" && onboarding === "comeback") {
+      window.localStorage.setItem(ONBOARDING_KEY, ONBOARDING_DONE);
+      setRevive(true);
+      setOnboarding(null);
+    } else if (outcome === "win" && !isOnboardingDone()) {
+      window.localStorage.setItem(ONBOARDING_KEY, ONBOARDING_DONE);
+    } else if (outcome === "lose" && !isOnboardingDone()) {
+      setOnboarding("lose");
+    }
     setGame(newGame);
     setResult(outcome);
     setScreen("result");
+  }
+
+  function goPractice() {
+    setComebackMode(mode);
+    setMode("solo");
+    setShowHints(true);
+    setOnboarding("practice");
+    beginGame(balance, "solo", getStoryDeck("practice"));
+  }
+
+  function backToBattle() {
+    setMode(comebackMode);
+    setShowHints(false);
+    setOnboarding("comeback");
+    beginGame(balance, comebackMode, getStoryDeck("comeback"));
+  }
+
+  function goMenu() {
+    setRevive(false);
+    setOnboarding(null);
+    setScreen("menu");
   }
 
   function anyCanPlace(hand: Emoji[], fields: Emoji[]): boolean {
@@ -237,10 +298,17 @@ export default function App() {
   const t = TEXT[lang];
 
   if (screen === "menu") {
+    const showPrologue = !isOnboardingDone();
     return (
       <div className="menu">
         <h1>Emoji Shiritori</h1>
-        <p className="subtitle">{t.subtitle}</p>
+        {showPrologue && (
+          <div className="prologue">
+            <h2 className="chapter-title">{t.prologueTitle}</h2>
+            <p className="prologue-text">{t.prologue}</p>
+          </div>
+        )}
+        {!showPrologue && <p className="subtitle">{t.subtitle}</p>}
         <div className="lang-select">
           <button
             type="button"
@@ -290,7 +358,7 @@ export default function App() {
           </button>
         </div>
         <button type="button" className="start-btn" onClick={startGame}>
-          {t.start}
+          {showPrologue ? t.prologueStart : t.start}
         </button>
         <p className="rule">{t.rule}</p>
         <p className="balance-note">
@@ -303,17 +371,27 @@ export default function App() {
   }
 
   if (screen === "result" && result) {
+    const showPractice = result === "lose" && onboarding === "lose";
     return (
-      <div className={`result ${result}`}>
-        <h1>{t[result]}</h1>
+      <div className={`result ${result} ${revive ? "revive" : ""}`}>
+        {showPractice && <h2 className="chapter-title">{t.storyDefeat}</h2>}
+        {revive ? (
+          <>
+            <h2 className="chapter-title">{t.revive}</h2>
+            <p className="revive-note">{t.reviveNote}</p>
+          </>
+        ) : (
+          <h1>{t[result]}</h1>
+        )}
+        {showPractice && (
+          <button type="button" className="practice-btn" onClick={goPractice}>
+            {t.storyDefeatBtn}
+          </button>
+        )}
         <button type="button" className="start-btn" onClick={startGame}>
           {t.again}
         </button>
-        <button
-          type="button"
-          className="menu-btn"
-          onClick={() => setScreen("menu")}
-        >
+        <button type="button" className="menu-btn" onClick={goMenu}>
           {t.menu}
         </button>
       </div>
@@ -359,6 +437,21 @@ export default function App() {
           <div className="deck-remain">
             {t.deck}: {deckLabel}
           </div>
+        )}
+        {isSolo && onboarding === "practice" && (
+          <>
+            <p className="training-banner">{t.storyTrainingBanner}</p>
+            <button
+              type="button"
+              className="practice-bar"
+              onClick={backToBattle}
+            >
+              {t.backToBattle}
+            </button>
+          </>
+        )}
+        {!isSolo && onboarding === "comeback" && (
+          <p className="final-banner">{t.storyFinalTitle}</p>
         )}
         <button
           type="button"
@@ -411,6 +504,18 @@ const TEXT = {
     win: "勝利！",
     lose: "敗北…",
     draw: "引き分け",
+    prologueTitle: "第1章「自然」",
+    prologue: "謎のCPUが自然エリアに現れた！ 立ち向かえ！",
+    prologueStart: "出撃！",
+    storyDefeat: "自然エリアで敗れた… 「食べ物エリア」で修行を積もう！",
+    storyDefeatBtn: "修行に出る",
+    storyTrainingBanner: "修行中… 食べ物を制覇せよ！",
+    storyFinalTitle: "最終章「決戦」",
+    revive: "復活！",
+    reviveNote: "修行の成果でCPUを打ち倒した！ 絵文字世界に平和が戻った！",
+    backToBattle: "決戦に挑む",
+    practice: "修行する",
+    practicePrompt: "食べ物の絵文字を練習しよう！",
     again: "もう一度",
     menu: "メニュー",
     speed: "スピード（場2枚・ヒント文字なし）",
@@ -430,6 +535,18 @@ const TEXT = {
     win: "You Win!",
     lose: "You Lose…",
     draw: "Draw",
+    prologueTitle: "Ch.1 \"Nature\"",
+    prologue: "A mysterious CPU appears in the Nature zone! Confront it!",
+    prologueStart: "Sortie!",
+    storyDefeat: "Defeated in Nature… Train in the \"Food\" zone!",
+    storyDefeatBtn: "Go Train",
+    storyTrainingBanner: "Training… Master the Food category!",
+    storyFinalTitle: "Ch.3 \"Final\"",
+    revive: "Revived!",
+    reviveNote: "Your training paid off — the CPU is defeated! Peace returns!",
+    backToBattle: "Final Battle",
+    practice: "Train",
+    practicePrompt: "Practice with Food emojis!",
     again: "Play Again",
     menu: "Menu",
     speed: "Speed (2 fields, no hint chars)",
