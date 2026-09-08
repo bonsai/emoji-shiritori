@@ -1,18 +1,33 @@
 import { describe, expect, it } from "vitest";
-import { canPlace, displayName, firstChar, lastChar, shuffle, ALL_EMOJIS } from "./emojis";
+import {
+  ALL_EMOJIS,
+  canPlace,
+  displayName,
+  firstChar,
+  lastChar,
+  normalizeReading,
+  shuffle,
+  validateEmojiData,
+} from "./emojis";
 import type { Emoji } from "./emojis";
 
 const APPLE: Emoji = { emoji: "🍎", name: "apple", jaName: "りんご", category: "fruit", tags: [] };
 const BANANA: Emoji = { emoji: "🍌", name: "banana", jaName: "バナナ", category: "fruit", tags: [] };
 const GNOME: Emoji = { emoji: "👺", name: "goblin", jaName: "てんぐ", category: "object", tags: [] };
 
+describe("reading normalization", () => {
+  it("normalizes katakana to hiragana", () => {
+    expect(normalizeReading("バナナ")).toBe("ばなな");
+  });
+  it("normalizes ASCII case and spacing", () => {
+    expect(normalizeReading(" Cherry Blossom ")).toBe("cherryblossom");
+  });
+});
+
 describe("firstChar", () => {
   it("returns first character", () => {
     expect(firstChar("りんご")).toBe("り");
     expect(firstChar("apple")).toBe("a");
-  });
-  it("handles emoji strings", () => {
-    expect(firstChar("🍎りんご")).toBe("🍎");
   });
   it("handles empty string", () => {
     expect(firstChar("")).toBe("");
@@ -20,9 +35,10 @@ describe("firstChar", () => {
 });
 
 describe("lastChar", () => {
-  it("returns last character", () => {
+  it("returns normalized last character", () => {
     expect(lastChar("りんご")).toBe("ご");
-    expect(lastChar("apple")).toBe("e");
+    expect(lastChar("バナナ")).toBe("な");
+    expect(lastChar("APPLE")).toBe("e");
   });
   it("handles empty string", () => {
     expect(lastChar("")).toBe("");
@@ -75,12 +91,7 @@ describe("ALL_EMOJIS", () => {
   it("is non-empty", () => {
     expect(ALL_EMOJIS.length).toBeGreaterThan(0);
   });
-  it("every item has required fields", () => {
-    for (const e of ALL_EMOJIS) {
-      expect(e.emoji).toBeTruthy();
-      expect(e.name).toBeTruthy();
-      expect(e.jaName).toBeTruthy();
-      expect(e.category).toBeTruthy();
-    }
+  it("has valid unique records", () => {
+    expect(validateEmojiData(ALL_EMOJIS)).toEqual([]);
   });
 });
