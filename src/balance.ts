@@ -8,10 +8,11 @@ export interface GameBalance {
   mode: Mode;
 }
 
+// Keep the default hand compact so the game stays readable on phones.
 export const DEFAULT_BALANCE: GameBalance = {
-  handSize: 20,
+  handSize: 8,
   fieldCount: 1,
-  cpuIntervalMs: 1100,
+  cpuIntervalMs: 1000,
   hintsDefault: false,
   mode: "relax",
 };
