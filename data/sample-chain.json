@@ -1,0 +1,30 @@
+{
+  "version": 1,
+  "purpose": "10-step guaranteed shiritori sample",
+  "steps": 10,
+  "chain": [
+    {"step": 1, "wordId": "word-バナナ", "emoji": "🍌", "surface": "バナナ", "reading": "ばなな", "nextSound": "な"},
+    {"step": 2, "wordId": "word-なす", "emoji": "🍆", "surface": "なす", "reading": "なす", "nextSound": "す"},
+    {"step": 3, "wordId": "word-スクーター", "emoji": "🛵", "surface": "スクーター", "reading": "すくーたー", "nextSound": "た"},
+    {"step": 4, "wordId": "word-たまねぎ", "emoji": "🧅", "surface": "たまねぎ", "reading": "たまねぎ", "nextSound": "ぎ"},
+    {"step": 5, "wordId": "word-ぎんこう", "emoji": "🏦", "surface": "ぎんこう", "reading": "ぎんこう", "nextSound": "う"},
+    {"step": 6, "wordId": "word-うさぎ", "emoji": "🐰", "surface": "うさぎ", "reading": "うさぎ", "nextSound": "ぎ"},
+    {"step": 7, "wordId": "word-ギター", "emoji": "🎸", "surface": "ギター", "reading": "ぎたー", "nextSound": "た"},
+    {"step": 8, "wordId": "word-たいよう", "emoji": "☀️", "surface": "たいよう", "reading": "たいよう", "nextSound": "う"},
+    {"step": 9, "wordId": "word-うし", "emoji": "🐮", "surface": "うし", "reading": "うし", "nextSound": "し"},
+    {"step": 10, "wordId": "word-しんぞう", "emoji": "🫀", "surface": "しんぞう", "reading": "しんぞう", "nextSound": "う"},
+    {"step": 11, "wordId": "word-うま", "emoji": "🐴", "surface": "うま", "reading": "うま", "nextSound": "ま"}
+  ],
+  "transitions": [
+    {"from": 1, "to": 2, "sound": "な"},
+    {"from": 2, "to": 3, "sound": "す"},
+    {"from": 3, "to": 4, "sound": "た"},
+    {"from": 4, "to": 5, "sound": "ぎ"},
+    {"from": 5, "to": 6, "sound": "う"},
+    {"from": 6, "to": 7, "sound": "ぎ"},
+    {"from": 7, "to": 8, "sound": "た"},
+    {"from": 8, "to": 9, "sound": "う"},
+    {"from": 9, "to": 10, "sound": "し"},
+    {"from": 10, "to": 11, "sound": "う"}
+  ]
+}
