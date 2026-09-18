@@ -1,0 +1,770 @@
+[
+  {
+    "emoji": "🍎",
+    "wordIds": [
+      "word-りんご"
+    ]
+  },
+  {
+    "emoji": "🥑",
+    "wordIds": [
+      "word-アボカド"
+    ]
+  },
+  {
+    "emoji": "🍌",
+    "wordIds": [
+      "word-バナナ"
+    ]
+  },
+  {
+    "emoji": "🫐",
+    "wordIds": [
+      "word-ブルーベリー"
+    ]
+  },
+  {
+    "emoji": "🍇",
+    "wordIds": [
+      "word-ぶどう"
+    ]
+  },
+  {
+    "emoji": "🍊",
+    "wordIds": [
+      "word-みかん"
+    ]
+  },
+  {
+    "emoji": "🍓",
+    "wordIds": [
+      "word-いちご"
+    ]
+  },
+  {
+    "emoji": "🥦",
+    "wordIds": [
+      "word-ブロッコリー"
+    ]
+  },
+  {
+    "emoji": "🥕",
+    "wordIds": [
+      "word-にんじん"
+    ]
+  },
+  {
+    "emoji": "🌽",
+    "wordIds": [
+      "word-とうもろこし"
+    ]
+  },
+  {
+    "emoji": "🍆",
+    "wordIds": [
+      "word-なす"
+    ]
+  },
+  {
+    "emoji": "🍅",
+    "wordIds": [
+      "word-トマト"
+    ]
+  },
+  {
+    "emoji": "🍄",
+    "wordIds": [
+      "word-きのこ"
+    ]
+  },
+  {
+    "emoji": "🥬",
+    "wordIds": [
+      "word-レタス"
+    ]
+  },
+  {
+    "emoji": "🧅",
+    "wordIds": [
+      "word-たまねぎ"
+    ]
+  },
+  {
+    "emoji": "🥔",
+    "wordIds": [
+      "word-じゃがいも"
+    ]
+  },
+  {
+    "emoji": "🐶",
+    "wordIds": [
+      "word-いぬ"
+    ]
+  },
+  {
+    "emoji": "🐱",
+    "wordIds": [
+      "word-ねこ"
+    ]
+  },
+  {
+    "emoji": "🐭",
+    "wordIds": [
+      "word-ねずみ"
+    ]
+  },
+  {
+    "emoji": "🐰",
+    "wordIds": [
+      "word-うさぎ"
+    ]
+  },
+  {
+    "emoji": "🦊",
+    "wordIds": [
+      "word-きつね"
+    ]
+  },
+  {
+    "emoji": "🐻",
+    "wordIds": [
+      "word-くま"
+    ]
+  },
+  {
+    "emoji": "🐼",
+    "wordIds": [
+      "word-パンダ"
+    ]
+  },
+  {
+    "emoji": "🐨",
+    "wordIds": [
+      "word-コアラ"
+    ]
+  },
+  {
+    "emoji": "🦁",
+    "wordIds": [
+      "word-らいおん"
+    ]
+  },
+  {
+    "emoji": "🐯",
+    "wordIds": [
+      "word-とら"
+    ]
+  },
+  {
+    "emoji": "🐷",
+    "wordIds": [
+      "word-ぶた"
+    ]
+  },
+  {
+    "emoji": "🐮",
+    "wordIds": [
+      "word-うし"
+    ]
+  },
+  {
+    "emoji": "🐔",
+    "wordIds": [
+      "word-にわとり"
+    ]
+  },
+  {
+    "emoji": "🐧",
+    "wordIds": [
+      "word-ペンギン"
+    ]
+  },
+  {
+    "emoji": "🐦",
+    "wordIds": [
+      "word-とり"
+    ]
+  },
+  {
+    "emoji": "🐘",
+    "wordIds": [
+      "word-ぞう"
+    ]
+  },
+  {
+    "emoji": "🦅",
+    "wordIds": [
+      "word-わし"
+    ]
+  },
+  {
+    "emoji": "🐴",
+    "wordIds": [
+      "word-うま"
+    ]
+  },
+  {
+    "emoji": "🐑",
+    "wordIds": [
+      "word-ひつじ"
+    ]
+  },
+  {
+    "emoji": "🐍",
+    "wordIds": [
+      "word-へび"
+    ]
+  },
+  {
+    "emoji": "🐳",
+    "wordIds": [
+      "word-くじら"
+    ]
+  },
+  {
+    "emoji": "🦓",
+    "wordIds": [
+      "word-しまうま"
+    ]
+  },
+  {
+    "emoji": "🦆",
+    "wordIds": [
+      "word-あひる"
+    ]
+  },
+  {
+    "emoji": "🦒",
+    "wordIds": [
+      "word-きりん"
+    ]
+  },
+  {
+    "emoji": "🐸",
+    "wordIds": [
+      "word-かえる"
+    ]
+  },
+  {
+    "emoji": "🦋",
+    "wordIds": [
+      "word-ちょうちょ"
+    ]
+  },
+  {
+    "emoji": "🐝",
+    "wordIds": [
+      "word-みつばち"
+    ]
+  },
+  {
+    "emoji": "🐞",
+    "wordIds": [
+      "word-てんとうむし"
+    ]
+  },
+  {
+    "emoji": "🐜",
+    "wordIds": [
+      "word-あり"
+    ]
+  },
+  {
+    "emoji": "🌸",
+    "wordIds": [
+      "word-さくら"
+    ]
+  },
+  {
+    "emoji": "🌻",
+    "wordIds": [
+      "word-ひまわり"
+    ]
+  },
+  {
+    "emoji": "🌵",
+    "wordIds": [
+      "word-サボテン"
+    ]
+  },
+  {
+    "emoji": "🌳",
+    "wordIds": [
+      "word-き"
+    ]
+  },
+  {
+    "emoji": "🍁",
+    "wordIds": [
+      "word-もみじ"
+    ]
+  },
+  {
+    "emoji": "🌹",
+    "wordIds": [
+      "word-ばら"
+    ]
+  },
+  {
+    "emoji": "🌊",
+    "wordIds": [
+      "word-なみ"
+    ]
+  },
+  {
+    "emoji": "🔥",
+    "wordIds": [
+      "word-ひ"
+    ]
+  },
+  {
+    "emoji": "🌍",
+    "wordIds": [
+      "word-ちきゅう"
+    ]
+  },
+  {
+    "emoji": "🌋",
+    "wordIds": [
+      "word-かざん"
+    ]
+  },
+  {
+    "emoji": "🌈",
+    "wordIds": [
+      "word-にじ"
+    ]
+  },
+  {
+    "emoji": "⭐",
+    "wordIds": [
+      "word-ほし"
+    ]
+  },
+  {
+    "emoji": "🌙",
+    "wordIds": [
+      "word-つき"
+    ]
+  },
+  {
+    "emoji": "☀️",
+    "wordIds": [
+      "word-たいよう"
+    ]
+  },
+  {
+    "emoji": "☁️",
+    "wordIds": [
+      "word-くも"
+    ]
+  },
+  {
+    "emoji": "⚡",
+    "wordIds": [
+      "word-かみなり"
+    ]
+  },
+  {
+    "emoji": "❄️",
+    "wordIds": [
+      "word-ゆき"
+    ]
+  },
+  {
+    "emoji": "🏠",
+    "wordIds": [
+      "word-いえ"
+    ]
+  },
+  {
+    "emoji": "🏫",
+    "wordIds": [
+      "word-がっこう"
+    ]
+  },
+  {
+    "emoji": "🏥",
+    "wordIds": [
+      "word-びょういん"
+    ]
+  },
+  {
+    "emoji": "🏦",
+    "wordIds": [
+      "word-ぎんこう"
+    ]
+  },
+  {
+    "emoji": "🏪",
+    "wordIds": [
+      "word-コンビニ"
+    ]
+  },
+  {
+    "emoji": "🏰",
+    "wordIds": [
+      "word-おしろ"
+    ]
+  },
+  {
+    "emoji": "🏝️",
+    "wordIds": [
+      "word-しま"
+    ]
+  },
+  {
+    "emoji": "🚗",
+    "wordIds": [
+      "word-くるま"
+    ]
+  },
+  {
+    "emoji": "🚌",
+    "wordIds": [
+      "word-バス"
+    ]
+  },
+  {
+    "emoji": "🚲",
+    "wordIds": [
+      "word-じてんしゃ"
+    ]
+  },
+  {
+    "emoji": "✈️",
+    "wordIds": [
+      "word-ひこうき"
+    ]
+  },
+  {
+    "emoji": "🚀",
+    "wordIds": [
+      "word-ロケット"
+    ]
+  },
+  {
+    "emoji": "🚢",
+    "wordIds": [
+      "word-ふね"
+    ]
+  },
+  {
+    "emoji": "🚂",
+    "wordIds": [
+      "word-でんしゃ"
+    ]
+  },
+  {
+    "emoji": "🚕",
+    "wordIds": [
+      "word-タクシー"
+    ]
+  },
+  {
+    "emoji": "🚁",
+    "wordIds": [
+      "word-ヘリコプター"
+    ]
+  },
+  {
+    "emoji": "🛥️",
+    "wordIds": [
+      "word-ヨット"
+    ]
+  },
+  {
+    "emoji": "🛵",
+    "wordIds": [
+      "word-スクーター"
+    ]
+  },
+  {
+    "emoji": "🎸",
+    "wordIds": [
+      "word-ギター"
+    ]
+  },
+  {
+    "emoji": "🎹",
+    "wordIds": [
+      "word-ピアノ"
+    ]
+  },
+  {
+    "emoji": "🥁",
+    "wordIds": [
+      "word-ドラム"
+    ]
+  },
+  {
+    "emoji": "🎵",
+    "wordIds": [
+      "word-おんぷ"
+    ]
+  },
+  {
+    "emoji": "🎺",
+    "wordIds": [
+      "word-トランペット"
+    ]
+  },
+  {
+    "emoji": "🎨",
+    "wordIds": [
+      "word-パレット"
+    ]
+  },
+  {
+    "emoji": "🎭",
+    "wordIds": [
+      "word-えんげき"
+    ]
+  },
+  {
+    "emoji": "📚",
+    "wordIds": [
+      "word-ほん"
+    ]
+  },
+  {
+    "emoji": "💻",
+    "wordIds": [
+      "word-パソコン"
+    ]
+  },
+  {
+    "emoji": "📱",
+    "wordIds": [
+      "word-スマホ"
+    ]
+  },
+  {
+    "emoji": "⌚",
+    "wordIds": [
+      "word-うでどけい"
+    ]
+  },
+  {
+    "emoji": "🔑",
+    "wordIds": [
+      "word-かぎ"
+    ]
+  },
+  {
+    "emoji": "💡",
+    "wordIds": [
+      "word-でんきゅう"
+    ]
+  },
+  {
+    "emoji": "🎁",
+    "wordIds": [
+      "word-プレゼント"
+    ]
+  },
+  {
+    "emoji": "☂️",
+    "wordIds": [
+      "word-かさ"
+    ]
+  },
+  {
+    "emoji": "✉️",
+    "wordIds": [
+      "word-てがみ"
+    ]
+  },
+  {
+    "emoji": "✂️",
+    "wordIds": [
+      "word-はさみ"
+    ]
+  },
+  {
+    "emoji": "🧲",
+    "wordIds": [
+      "word-じしゃく"
+    ]
+  },
+  {
+    "emoji": "⚽",
+    "wordIds": [
+      "word-サッカー"
+    ]
+  },
+  {
+    "emoji": "🏀",
+    "wordIds": [
+      "word-バスケ"
+    ]
+  },
+  {
+    "emoji": "🎾",
+    "wordIds": [
+      "word-テニス"
+    ]
+  },
+  {
+    "emoji": "🎮",
+    "wordIds": [
+      "word-ゲーム"
+    ]
+  },
+  {
+    "emoji": "🎣",
+    "wordIds": [
+      "word-つり"
+    ]
+  },
+  {
+    "emoji": "🥊",
+    "wordIds": [
+      "word-ボクシング"
+    ]
+  },
+  {
+    "emoji": "🍣",
+    "wordIds": [
+      "word-すし"
+    ]
+  },
+  {
+    "emoji": "🍜",
+    "wordIds": [
+      "word-ラーメン"
+    ]
+  },
+  {
+    "emoji": "🍕",
+    "wordIds": [
+      "word-ピザ"
+    ]
+  },
+  {
+    "emoji": "🍔",
+    "wordIds": [
+      "word-ハンバーガー"
+    ]
+  },
+  {
+    "emoji": "🍰",
+    "wordIds": [
+      "word-ケーキ"
+    ]
+  },
+  {
+    "emoji": "🍦",
+    "wordIds": [
+      "word-アイス"
+    ]
+  },
+  {
+    "emoji": "🍫",
+    "wordIds": [
+      "word-チョコ"
+    ]
+  },
+  {
+    "emoji": "🥚",
+    "wordIds": [
+      "word-たまご"
+    ]
+  },
+  {
+    "emoji": "🍞",
+    "wordIds": [
+      "word-パン"
+    ]
+  },
+  {
+    "emoji": "🥐",
+    "wordIds": [
+      "word-クロワッサン"
+    ]
+  },
+  {
+    "emoji": "🍪",
+    "wordIds": [
+      "word-クッキー"
+    ]
+  },
+  {
+    "emoji": "☕",
+    "wordIds": [
+      "word-コーヒー"
+    ]
+  },
+  {
+    "emoji": "🍵",
+    "wordIds": [
+      "word-おちゃ"
+    ]
+  },
+  {
+    "emoji": "🥤",
+    "wordIds": [
+      "word-ジュース"
+    ]
+  },
+  {
+    "emoji": "🍺",
+    "wordIds": [
+      "word-ビール"
+    ]
+  },
+  {
+    "emoji": "🍷",
+    "wordIds": [
+      "word-ワイン"
+    ]
+  },
+  {
+    "emoji": "🧃",
+    "wordIds": [
+      "word-ジュース"
+    ]
+  },
+  {
+    "emoji": "👁️",
+    "wordIds": [
+      "word-め"
+    ]
+  },
+  {
+    "emoji": "👂",
+    "wordIds": [
+      "word-みみ"
+    ]
+  },
+  {
+    "emoji": "👃",
+    "wordIds": [
+      "word-はな"
+    ]
+  },
+  {
+    "emoji": "👄",
+    "wordIds": [
+      "word-くち"
+    ]
+  },
+  {
+    "emoji": "🦷",
+    "wordIds": [
+      "word-は"
+    ]
+  },
+  {
+    "emoji": "🫀",
+    "wordIds": [
+      "word-しんぞう"
+    ]
+  },
+  {
+    "emoji": "🦍",
+    "wordIds": [
+      "word-ごりら"
+    ]
+  }
+]
