@@ -1,5 +1,5 @@
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
-import { ALL_EMOJIS, canPlace, displayName, firstChar, lastChar, shuffle, type Emoji, type Lang } from "./emojis";
+import { ALL_EMOJIS, displayName, lastChar, normalizeReading, shuffle, type Emoji, type Lang } from "./emojis";
 import "./App.css";
 
 const HAND_SIZE = 7;
@@ -19,6 +19,23 @@ function drawCards(deck: Emoji[], count: number, used: Set<string>) {
 function newGame(): GameState {
   const pool = shuffle(ALL_EMOJIS); const field = pool.pop()!; const hand = pool.splice(0, HAND_SIZE);
   return { deck: pool, hand, field, combo: 0, secondsLeft: ROUND_SECONDS, moves: 0 };
+}
+
+function normalizeForShiritori(s: string): string {
+  return normalizeReading(s)
+    .replace(/[ぁぃぅぇぉっゃゅょゎ]/g, (c) => ({ぁ:"あ",ぃ:"い",ぅ:"う",ぇ:"え",ぉ:"お",っ:"つ",ゃ:"や",ゅ:"ゆ",ょ:"よ",ゎ:"わ"}[c] ?? c))
+    .replace(/[ー]/g, "")
+    .replace(/ん$/, "ん");
+}
+
+function firstSound(s: string): string { return Array.from(normalizeForShiritori(s))[0] ?? ""; }
+function lastSound(s: string): string {
+  const chars = Array.from(normalizeForShiritori(s));
+  return chars[chars.length - 1] ?? "";
+}
+
+function canPlace(card: Emoji, target: Emoji, lang: Lang): boolean {
+  return firstSound(displayName(card, lang)) === lastSound(displayName(target, lang));
 }
 
 export default function App() {
