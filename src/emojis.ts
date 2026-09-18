@@ -11,8 +11,19 @@ export interface Emoji {
 export type Lang = "en" | "ja";
 
 import emojiData from "../data/emojis.json";
+import wordData from "../data/words.json";
+import emojiMap from "../data/emoji-map.json";
 
 export const ALL_EMOJIS: Emoji[] = emojiData as Emoji[];
+const WORDS = wordData as Array<{ id: string; readings: string[] }>;
+const EMOJI_WORDS = emojiMap as Array<{ emoji: string; wordIds: string[] }>;
+
+export function readings(e: Emoji, lang: Lang): string[] {
+  if (lang !== "ja") return [e.name];
+  const ids = EMOJI_WORDS.find((x) => x.emoji === e.emoji)?.wordIds ?? [];
+  const fromGraph = ids.flatMap((id) => WORDS.find((w) => w.id === id)?.readings ?? []);
+  return [...new Set([e.jaName, ...fromGraph])];
+}
 
 export function displayName(e: Emoji, lang: Lang): string {
   return lang === "ja" ? e.jaName : e.name;
