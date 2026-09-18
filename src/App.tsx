@@ -2,10 +2,10 @@ import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { ALL_EMOJIS, displayName, normalizeReading, readings, shuffle, type Emoji, type Lang } from "./emojis";
 import "./App.css";
 
-const HAND_SIZE = 20;
+const HAND_SIZE = 7;
 const ROUND_SECONDS = 60;
 type Difficulty = "easy" | "normal" | "hard";
-const PLAYABLE_TARGET: Record<Difficulty, number> = { easy: 8, normal: 7, hard: 5 };
+const PLAYABLE_TARGET: Record<Difficulty, number> = { easy: 7, normal: 7, hard: 7 };
 const BEST_KEY = "emoji-shiritori.best-combo";
 type Screen = "menu" | "game" | "result";
 interface GameState { deck: Emoji[]; hand: Emoji[]; field: Emoji; combo: number; secondsLeft: number; moves: number; }
