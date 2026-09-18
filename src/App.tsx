@@ -102,12 +102,13 @@ export default function App() {
     const targetChoices = PLAYABLE_TARGET[difficulty];
     const currentPlayable = hand.filter((item) => canPlace(item, card, lang));
     const needed = Math.max(0, targetChoices - currentPlayable.length);
-    const forced = nextPlayable.slice(0, needed);
-    const forcedIds = new Set(forced.map((item) => item.emoji));
-    const fillerCandidates = candidates.filter((item) => !forcedIds.has(item.emoji));
     const refillCount = Math.max(0, HAND_SIZE - hand.length);
-    const refill = [...forced, ...shuffle(fillerCandidates).slice(0, Math.max(0, refillCount - forced.length))];
-    const next: GameState = { ...current, deck: fillerCandidates.filter((item) => !refill.some((x) => x.emoji === item.emoji)), hand: [...hand, ...refill], field: card, combo: current.combo + 1, moves: current.moves + 1 };
+    // The deck refills one card at a time; when below the difficulty target,
+    // prefer a graph edge so the next move remains possible.
+    const preferred = needed > 0 ? nextPlayable : [];
+    const refill = [...preferred, ...shuffle(candidates.filter((item) => !preferred.some((x) => x.emoji === item.emoji)))].slice(0, refillCount);
+    const refillIds = new Set(refill.map((item) => item.emoji));
+    const next: GameState = { ...current, deck: candidates.filter((item) => !refillIds.has(item.emoji)), hand: [...hand, ...refill], field: card, combo: current.combo + 1, moves: current.moves + 1 };
     gameRef.current = next; setGame(next); setFlash(`+1  COMBO ${next.combo}`); window.setTimeout(() => setFlash(null), 420);
     if (!next.hand.some((item) => canPlace(item, next.field, lang))) finish(next);
   }, [finish, lang, screen]);
