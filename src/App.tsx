@@ -1,5 +1,5 @@
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
-import { ALL_EMOJIS, displayName, lastChar, normalizeReading, shuffle, type Emoji, type Lang } from "./emojis";
+import { ALL_EMOJIS, displayName, lastChar, normalizeReading, readings, shuffle, type Emoji, type Lang } from "./emojis";
 import "./App.css";
 
 const HAND_SIZE = 7;
@@ -35,7 +35,13 @@ function lastSound(s: string): string {
 }
 
 function canPlace(card: Emoji, target: Emoji, lang: Lang): boolean {
-  return firstSound(displayName(card, lang)) === lastSound(displayName(target, lang));
+  return readings(card, lang).some((cardReading) =>
+    readings(target, lang).some((targetReading) => firstSound(cardReading) === lastSound(targetReading))
+  );
+}
+
+function targetSounds(card: Emoji, lang: Lang): string[] {
+  return [...new Set(readings(card, lang).map(lastSound).filter(Boolean))];
 }
 
 export default function App() {
@@ -86,7 +92,7 @@ export default function App() {
   if (screen === "result" && game) return <main className="result infinite-result"><div className="eyebrow">TIME UP / GAME OVER</div><h1>{t.gameOver}</h1><div className="result-combo"><span>COMBO</span><strong>{game.combo}</strong></div>{game.combo === best && game.combo > 0 && <div className="new-best">🏆 {t.newBest}</div>}<p className="result-detail">{t.moves}: {game.moves}</p><button type="button" className="start-btn" onClick={start}>{t.restart}</button><button type="button" className="menu-btn" onClick={() => setScreen("menu")}>{t.menu}</button></main>;
 
   if (!game) return null;
-  const target = lastChar(displayName(game.field, lang));
+  const target = targetSounds(game.field, lang).join(" / ");
   return <main className="battle infinite-battle"><header className="game-header"><div className="timer-wrap"><span>{t.time}</span><strong className={game.secondsLeft <= 10 ? "urgent" : ""}>{game.secondsLeft}</strong></div><div className="combo-wrap"><span>COMBO</span><strong key={game.combo}>{game.combo}</strong></div><button type="button" className="restart-small" onClick={start}>{t.restart}</button></header><section className="arena infinite-arena"><div className="flash">{flash}</div><div className="field-card infinite-field"><div className="field-label">{t.current}</div><div className="emoji-big">{game.field.emoji}</div><div className="reading">{displayName(game.field, lang)}</div></div><div className="target-box"><span>{t.next}</span><strong>「{target || "—"}」</strong></div></section><section className="player-area infinite-player"><div className="choice-title"><span>{t.choice}</span><strong>{playableCards.length}</strong></div><div className="choices">{playableCards.length ? playableCards.map((card) => <button key={card.emoji} type="button" className="choice-card" onClick={() => play(card)}><span className="emoji">{card.emoji}</span><span className="reading">{displayName(card, lang)}</span></button>) : <div className="no-choice">{t.noChoice}</div>}</div><details className="hand-drawer"><summary>{t.hand} <span>{game.hand.length}</span></summary><div className="hand">{game.hand.map((card) => { const canPlay = playable.has(card.emoji); return <button key={card.emoji} type="button" className={`hand-card ${canPlay ? "playable" : "disabled"}`} disabled={!canPlay} onClick={() => play(card)}><span className="emoji">{card.emoji}</span><span className="reading">{displayName(card, lang)}</span></button>; })}</div></details></section></main>;
 }
 
