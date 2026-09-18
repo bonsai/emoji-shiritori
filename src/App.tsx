@@ -17,8 +17,14 @@ function drawCards(deck: Emoji[], count: number, used: Set<string>) {
   return { deck: source, drawn };
 }
 function newGame(): GameState {
-  const pool = shuffle(ALL_EMOJIS); const field = pool.pop()!; const hand = pool.splice(0, HAND_SIZE);
-  return { deck: pool, hand, field, combo: 0, secondsLeft: ROUND_SECONDS, moves: 0 };
+  // Start from the graph's sample-chain root so the first move is always visible.
+  const field = ALL_EMOJIS.find((e) => e.emoji === "🍌") ?? ALL_EMOJIS[0];
+  const firstMove = ALL_EMOJIS.find((e) => e.emoji === "🍆");
+  const remaining = ALL_EMOJIS.filter((e) => e.emoji !== field.emoji && e.emoji !== firstMove?.emoji);
+  const hand = firstMove ? [firstMove, ...shuffle(remaining).slice(0, HAND_SIZE - 1)] : shuffle(remaining).slice(0, HAND_SIZE);
+  const used = new Set(hand.map((e) => e.emoji)); used.add(field.emoji);
+  const deck = ALL_EMOJIS.filter((e) => !used.has(e.emoji));
+  return { deck: shuffle(deck), hand, field, combo: 0, secondsLeft: ROUND_SECONDS, moves: 0 };
 }
 
 function normalizeForShiritori(s: string): string {
