@@ -762,6 +762,7 @@
     "emoji": "🚗",
     "name": "car",
     "jaName": "くるま",
+    "readings": ["じどうしゃ"],
     "category": "vehicle",
     "tags": [
       "c",
