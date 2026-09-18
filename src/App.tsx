@@ -10,7 +10,7 @@ const BEST_KEY = "emoji-shiritori.best-combo";
 type Screen = "menu" | "game" | "result";
 interface GameState { deck: Emoji[]; hand: Emoji[]; field: Emoji; combo: number; secondsLeft: number; moves: number; }
 
-function dfunction playableFrom(field: Emoji, candidates: Emoji[], lang: Lang): Emoji[] {
+function playableFrom(field: Emoji, candidates: Emoji[], lang: Lang): Emoji[] {
   return candidates.filter((card) => canPlace(card, field, lang));
 }
 
