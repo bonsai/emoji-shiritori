@@ -1,5 +1,5 @@
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
-import { ALL_EMOJIS, displayName, lastChar, normalizeReading, readings, shuffle, type Emoji, type Lang } from "./emojis";
+import { ALL_EMOJIS, displayName, normalizeReading, readings, shuffle, type Emoji, type Lang } from "./emojis";
 import "./App.css";
 
 const HAND_SIZE = 7;
@@ -10,15 +10,7 @@ const BEST_KEY = "emoji-shiritori.best-combo";
 type Screen = "menu" | "game" | "result";
 interface GameState { deck: Emoji[]; hand: Emoji[]; field: Emoji; combo: number; secondsLeft: number; moves: number; }
 
-function drawCards(deck: Emoji[], count: number, used: Set<string>) {
-  let source = [...deck]; const drawn: Emoji[] = [];
-  while (drawn.length < count) {
-    if (source.length === 0) { source = shuffle(ALL_EMOJIS.filter((e) => !used.has(e.emoji))); if (source.length === 0) source = shuffle(ALL_EMOJIS); }
-    const card = source.pop(); if (!card) break; drawn.push(card); used.add(card.emoji);
-  }
-  return { deck: source, drawn };
-}
-function playableFrom(field: Emoji, candidates: Emoji[], lang: Lang): Emoji[] {
+function dfunction playableFrom(field: Emoji, candidates: Emoji[], lang: Lang): Emoji[] {
   return candidates.filter((card) => canPlace(card, field, lang));
 }
 
