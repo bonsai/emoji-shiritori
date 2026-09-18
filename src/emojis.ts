@@ -2,6 +2,8 @@ export interface Emoji {
   emoji: string;
   name: string;
   jaName: string;
+  /** Alternative Japanese readings accepted for shiritori. */
+  readings?: string[];
   category: string;
   tags: string[];
 }
@@ -14,6 +16,11 @@ export const ALL_EMOJIS: Emoji[] = emojiData as Emoji[];
 
 export function displayName(e: Emoji, lang: Lang): string {
   return lang === "ja" ? e.jaName : e.name;
+}
+
+export function readings(e: Emoji, lang: Lang): string[] {
+  if (lang !== "ja") return [e.name];
+  return [...new Set([e.jaName, ...(e.readings ?? [])])];
 }
 
 /** Normalize readings before comparing shiritori characters. */
