@@ -15,23 +15,18 @@ import wordData from "../data/words.json";
 import emojiMap from "../data/emoji-map.json";
 
 export const ALL_EMOJIS: Emoji[] = emojiData as Emoji[];
-const WORDS = wordData as Array<{ id: string; readings: string[] }>;
+const WORDS = (wordData as { nodes: Array<{ id: string; readings: string[] }> }).nodes;
 const EMOJI_WORDS = emojiMap as Array<{ emoji: string; wordIds: string[] }>;
 
 export function readings(e: Emoji, lang: Lang): string[] {
   if (lang !== "ja") return [e.name];
   const ids = EMOJI_WORDS.find((x) => x.emoji === e.emoji)?.wordIds ?? [];
   const fromGraph = ids.flatMap((id) => WORDS.find((w) => w.id === id)?.readings ?? []);
-  return [...new Set([e.jaName, ...fromGraph])];
+  return [...new Set([e.jaName, ...(e.readings ?? []), ...fromGraph])];
 }
 
 export function displayName(e: Emoji, lang: Lang): string {
   return lang === "ja" ? e.jaName : e.name;
-}
-
-export function readings(e: Emoji, lang: Lang): string[] {
-  if (lang !== "ja") return [e.name];
-  return [...new Set([e.jaName, ...(e.readings ?? [])])];
 }
 
 /** Normalize readings before comparing shiritori characters. */
