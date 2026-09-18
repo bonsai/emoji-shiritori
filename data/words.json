@@ -1,0 +1,3075 @@
+{
+  "version": 1,
+  "rule": "any last sound -> any first sound",
+  "nodes": [
+    {
+      "id": "word-りんご",
+      "surface": "りんご",
+      "readings": [
+        "りんご"
+      ],
+      "first": [
+        "り"
+      ],
+      "last": [
+        "ご"
+      ]
+    },
+    {
+      "id": "word-アボカド",
+      "surface": "アボカド",
+      "readings": [
+        "アボカド"
+      ],
+      "first": [
+        "あ"
+      ],
+      "last": [
+        "ど"
+      ]
+    },
+    {
+      "id": "word-バナナ",
+      "surface": "バナナ",
+      "readings": [
+        "バナナ"
+      ],
+      "first": [
+        "ば"
+      ],
+      "last": [
+        "な"
+      ]
+    },
+    {
+      "id": "word-ブルーベリー",
+      "surface": "ブルーベリー",
+      "readings": [
+        "ブルーベリー"
+      ],
+      "first": [
+        "ぶ"
+      ],
+      "last": [
+        "り"
+      ]
+    },
+    {
+      "id": "word-ぶどう",
+      "surface": "ぶどう",
+      "readings": [
+        "ぶどう"
+      ],
+      "first": [
+        "ぶ"
+      ],
+      "last": [
+        "う"
+      ]
+    },
+    {
+      "id": "word-みかん",
+      "surface": "みかん",
+      "readings": [
+        "みかん"
+      ],
+      "first": [
+        "み"
+      ],
+      "last": [
+        "ん"
+      ]
+    },
+    {
+      "id": "word-いちご",
+      "surface": "いちご",
+      "readings": [
+        "いちご"
+      ],
+      "first": [
+        "い"
+      ],
+      "last": [
+        "ご"
+      ]
+    },
+    {
+      "id": "word-ブロッコリー",
+      "surface": "ブロッコリー",
+      "readings": [
+        "ブロッコリー"
+      ],
+      "first": [
+        "ぶ"
+      ],
+      "last": [
+        "り"
+      ]
+    },
+    {
+      "id": "word-にんじん",
+      "surface": "にんじん",
+      "readings": [
+        "にんじん"
+      ],
+      "first": [
+        "に"
+      ],
+      "last": [
+        "ん"
+      ]
+    },
+    {
+      "id": "word-とうもろこし",
+      "surface": "とうもろこし",
+      "readings": [
+        "とうもろこし"
+      ],
+      "first": [
+        "と"
+      ],
+      "last": [
+        "し"
+      ]
+    },
+    {
+      "id": "word-なす",
+      "surface": "なす",
+      "readings": [
+        "なす"
+      ],
+      "first": [
+        "な"
+      ],
+      "last": [
+        "す"
+      ]
+    },
+    {
+      "id": "word-トマト",
+      "surface": "トマト",
+      "readings": [
+        "トマト"
+      ],
+      "first": [
+        "と"
+      ],
+      "last": [
+        "と"
+      ]
+    },
+    {
+      "id": "word-きのこ",
+      "surface": "きのこ",
+      "readings": [
+        "きのこ"
+      ],
+      "first": [
+        "き"
+      ],
+      "last": [
+        "こ"
+      ]
+    },
+    {
+      "id": "word-レタス",
+      "surface": "レタス",
+      "readings": [
+        "レタス"
+      ],
+      "first": [
+        "れ"
+      ],
+      "last": [
+        "す"
+      ]
+    },
+    {
+      "id": "word-たまねぎ",
+      "surface": "たまねぎ",
+      "readings": [
+        "たまねぎ"
+      ],
+      "first": [
+        "た"
+      ],
+      "last": [
+        "ぎ"
+      ]
+    },
+    {
+      "id": "word-じゃがいも",
+      "surface": "じゃがいも",
+      "readings": [
+        "じゃがいも"
+      ],
+      "first": [
+        "じ"
+      ],
+      "last": [
+        "も"
+      ]
+    },
+    {
+      "id": "word-いぬ",
+      "surface": "いぬ",
+      "readings": [
+        "いぬ"
+      ],
+      "first": [
+        "い"
+      ],
+      "last": [
+        "ぬ"
+      ]
+    },
+    {
+      "id": "word-ねこ",
+      "surface": "ねこ",
+      "readings": [
+        "ねこ"
+      ],
+      "first": [
+        "ね"
+      ],
+      "last": [
+        "こ"
+      ]
+    },
+    {
+      "id": "word-ねずみ",
+      "surface": "ねずみ",
+      "readings": [
+        "ねずみ"
+      ],
+      "first": [
+        "ね"
+      ],
+      "last": [
+        "み"
+      ]
+    },
+    {
+      "id": "word-うさぎ",
+      "surface": "うさぎ",
+      "readings": [
+        "うさぎ"
+      ],
+      "first": [
+        "う"
+      ],
+      "last": [
+        "ぎ"
+      ]
+    },
+    {
+      "id": "word-きつね",
+      "surface": "きつね",
+      "readings": [
+        "きつね"
+      ],
+      "first": [
+        "き"
+      ],
+      "last": [
+        "ね"
+      ]
+    },
+    {
+      "id": "word-くま",
+      "surface": "くま",
+      "readings": [
+        "くま"
+      ],
+      "first": [
+        "く"
+      ],
+      "last": [
+        "ま"
+      ]
+    },
+    {
+      "id": "word-パンダ",
+      "surface": "パンダ",
+      "readings": [
+        "パンダ"
+      ],
+      "first": [
+        "ぱ"
+      ],
+      "last": [
+        "だ"
+      ]
+    },
+    {
+      "id": "word-コアラ",
+      "surface": "コアラ",
+      "readings": [
+        "コアラ"
+      ],
+      "first": [
+        "こ"
+      ],
+      "last": [
+        "ら"
+      ]
+    },
+    {
+      "id": "word-らいおん",
+      "surface": "らいおん",
+      "readings": [
+        "らいおん"
+      ],
+      "first": [
+        "ら"
+      ],
+      "last": [
+        "ん"
+      ]
+    },
+    {
+      "id": "word-とら",
+      "surface": "とら",
+      "readings": [
+        "とら"
+      ],
+      "first": [
+        "と"
+      ],
+      "last": [
+        "ら"
+      ]
+    },
+    {
+      "id": "word-ぶた",
+      "surface": "ぶた",
+      "readings": [
+        "ぶた"
+      ],
+      "first": [
+        "ぶ"
+      ],
+      "last": [
+        "た"
+      ]
+    },
+    {
+      "id": "word-うし",
+      "surface": "うし",
+      "readings": [
+        "うし"
+      ],
+      "first": [
+        "う"
+      ],
+      "last": [
+        "し"
+      ]
+    },
+    {
+      "id": "word-にわとり",
+      "surface": "にわとり",
+      "readings": [
+        "にわとり"
+      ],
+      "first": [
+        "に"
+      ],
+      "last": [
+        "り"
+      ]
+    },
+    {
+      "id": "word-ペンギン",
+      "surface": "ペンギン",
+      "readings": [
+        "ペンギン"
+      ],
+      "first": [
+        "ぺ"
+      ],
+      "last": [
+        "ん"
+      ]
+    },
+    {
+      "id": "word-とり",
+      "surface": "とり",
+      "readings": [
+        "とり"
+      ],
+      "first": [
+        "と"
+      ],
+      "last": [
+        "り"
+      ]
+    },
+    {
+      "id": "word-ぞう",
+      "surface": "ぞう",
+      "readings": [
+        "ぞう"
+      ],
+      "first": [
+        "ぞ"
+      ],
+      "last": [
+        "う"
+      ]
+    },
+    {
+      "id": "word-わし",
+      "surface": "わし",
+      "readings": [
+        "わし"
+      ],
+      "first": [
+        "わ"
+      ],
+      "last": [
+        "し"
+      ]
+    },
+    {
+      "id": "word-うま",
+      "surface": "うま",
+      "readings": [
+        "うま"
+      ],
+      "first": [
+        "う"
+      ],
+      "last": [
+        "ま"
+      ]
+    },
+    {
+      "id": "word-ひつじ",
+      "surface": "ひつじ",
+      "readings": [
+        "ひつじ"
+      ],
+      "first": [
+        "ひ"
+      ],
+      "last": [
+        "じ"
+      ]
+    },
+    {
+      "id": "word-へび",
+      "surface": "へび",
+      "readings": [
+        "へび"
+      ],
+      "first": [
+        "へ"
+      ],
+      "last": [
+        "び"
+      ]
+    },
+    {
+      "id": "word-くじら",
+      "surface": "くじら",
+      "readings": [
+        "くじら"
+      ],
+      "first": [
+        "く"
+      ],
+      "last": [
+        "ら"
+      ]
+    },
+    {
+      "id": "word-しまうま",
+      "surface": "しまうま",
+      "readings": [
+        "しまうま"
+      ],
+      "first": [
+        "し"
+      ],
+      "last": [
+        "ま"
+      ]
+    },
+    {
+      "id": "word-あひる",
+      "surface": "あひる",
+      "readings": [
+        "あひる"
+      ],
+      "first": [
+        "あ"
+      ],
+      "last": [
+        "る"
+      ]
+    },
+    {
+      "id": "word-きりん",
+      "surface": "きりん",
+      "readings": [
+        "きりん"
+      ],
+      "first": [
+        "き"
+      ],
+      "last": [
+        "ん"
+      ]
+    },
+    {
+      "id": "word-かえる",
+      "surface": "かえる",
+      "readings": [
+        "かえる"
+      ],
+      "first": [
+        "か"
+      ],
+      "last": [
+        "る"
+      ]
+    },
+    {
+      "id": "word-ちょうちょ",
+      "surface": "ちょうちょ",
+      "readings": [
+        "ちょうちょ"
+      ],
+      "first": [
+        "ち"
+      ],
+      "last": [
+        "よ"
+      ]
+    },
+    {
+      "id": "word-みつばち",
+      "surface": "みつばち",
+      "readings": [
+        "みつばち"
+      ],
+      "first": [
+        "み"
+      ],
+      "last": [
+        "ち"
+      ]
+    },
+    {
+      "id": "word-てんとうむし",
+      "surface": "てんとうむし",
+      "readings": [
+        "てんとうむし"
+      ],
+      "first": [
+        "て"
+      ],
+      "last": [
+        "し"
+      ]
+    },
+    {
+      "id": "word-あり",
+      "surface": "あり",
+      "readings": [
+        "あり"
+      ],
+      "first": [
+        "あ"
+      ],
+      "last": [
+        "り"
+      ]
+    },
+    {
+      "id": "word-さくら",
+      "surface": "さくら",
+      "readings": [
+        "さくら"
+      ],
+      "first": [
+        "さ"
+      ],
+      "last": [
+        "ら"
+      ]
+    },
+    {
+      "id": "word-ひまわり",
+      "surface": "ひまわり",
+      "readings": [
+        "ひまわり"
+      ],
+      "first": [
+        "ひ"
+      ],
+      "last": [
+        "り"
+      ]
+    },
+    {
+      "id": "word-サボテン",
+      "surface": "サボテン",
+      "readings": [
+        "サボテン"
+      ],
+      "first": [
+        "さ"
+      ],
+      "last": [
+        "ん"
+      ]
+    },
+    {
+      "id": "word-き",
+      "surface": "き",
+      "readings": [
+        "き"
+      ],
+      "first": [
+        "き"
+      ],
+      "last": [
+        "き"
+      ]
+    },
+    {
+      "id": "word-もみじ",
+      "surface": "もみじ",
+      "readings": [
+        "もみじ"
+      ],
+      "first": [
+        "も"
+      ],
+      "last": [
+        "じ"
+      ]
+    },
+    {
+      "id": "word-ばら",
+      "surface": "ばら",
+      "readings": [
+        "ばら"
+      ],
+      "first": [
+        "ば"
+      ],
+      "last": [
+        "ら"
+      ]
+    },
+    {
+      "id": "word-なみ",
+      "surface": "なみ",
+      "readings": [
+        "なみ"
+      ],
+      "first": [
+        "な"
+      ],
+      "last": [
+        "み"
+      ]
+    },
+    {
+      "id": "word-ひ",
+      "surface": "ひ",
+      "readings": [
+        "ひ"
+      ],
+      "first": [
+        "ひ"
+      ],
+      "last": [
+        "ひ"
+      ]
+    },
+    {
+      "id": "word-ちきゅう",
+      "surface": "ちきゅう",
+      "readings": [
+        "ちきゅう"
+      ],
+      "first": [
+        "ち"
+      ],
+      "last": [
+        "う"
+      ]
+    },
+    {
+      "id": "word-かざん",
+      "surface": "かざん",
+      "readings": [
+        "かざん"
+      ],
+      "first": [
+        "か"
+      ],
+      "last": [
+        "ん"
+      ]
+    },
+    {
+      "id": "word-にじ",
+      "surface": "にじ",
+      "readings": [
+        "にじ"
+      ],
+      "first": [
+        "に"
+      ],
+      "last": [
+        "じ"
+      ]
+    },
+    {
+      "id": "word-ほし",
+      "surface": "ほし",
+      "readings": [
+        "ほし"
+      ],
+      "first": [
+        "ほ"
+      ],
+      "last": [
+        "し"
+      ]
+    },
+    {
+      "id": "word-つき",
+      "surface": "つき",
+      "readings": [
+        "つき"
+      ],
+      "first": [
+        "つ"
+      ],
+      "last": [
+        "き"
+      ]
+    },
+    {
+      "id": "word-たいよう",
+      "surface": "たいよう",
+      "readings": [
+        "たいよう"
+      ],
+      "first": [
+        "た"
+      ],
+      "last": [
+        "う"
+      ]
+    },
+    {
+      "id": "word-くも",
+      "surface": "くも",
+      "readings": [
+        "くも"
+      ],
+      "first": [
+        "く"
+      ],
+      "last": [
+        "も"
+      ]
+    },
+    {
+      "id": "word-かみなり",
+      "surface": "かみなり",
+      "readings": [
+        "かみなり"
+      ],
+      "first": [
+        "か"
+      ],
+      "last": [
+        "り"
+      ]
+    },
+    {
+      "id": "word-ゆき",
+      "surface": "ゆき",
+      "readings": [
+        "ゆき"
+      ],
+      "first": [
+        "ゆ"
+      ],
+      "last": [
+        "き"
+      ]
+    },
+    {
+      "id": "word-いえ",
+      "surface": "いえ",
+      "readings": [
+        "いえ"
+      ],
+      "first": [
+        "い"
+      ],
+      "last": [
+        "え"
+      ]
+    },
+    {
+      "id": "word-がっこう",
+      "surface": "がっこう",
+      "readings": [
+        "がっこう"
+      ],
+      "first": [
+        "が"
+      ],
+      "last": [
+        "う"
+      ]
+    },
+    {
+      "id": "word-びょういん",
+      "surface": "びょういん",
+      "readings": [
+        "びょういん"
+      ],
+      "first": [
+        "び"
+      ],
+      "last": [
+        "ん"
+      ]
+    },
+    {
+      "id": "word-ぎんこう",
+      "surface": "ぎんこう",
+      "readings": [
+        "ぎんこう"
+      ],
+      "first": [
+        "ぎ"
+      ],
+      "last": [
+        "う"
+      ]
+    },
+    {
+      "id": "word-コンビニ",
+      "surface": "コンビニ",
+      "readings": [
+        "コンビニ"
+      ],
+      "first": [
+        "こ"
+      ],
+      "last": [
+        "に"
+      ]
+    },
+    {
+      "id": "word-おしろ",
+      "surface": "おしろ",
+      "readings": [
+        "おしろ"
+      ],
+      "first": [
+        "お"
+      ],
+      "last": [
+        "ろ"
+      ]
+    },
+    {
+      "id": "word-しま",
+      "surface": "しま",
+      "readings": [
+        "しま"
+      ],
+      "first": [
+        "し"
+      ],
+      "last": [
+        "ま"
+      ]
+    },
+    {
+      "id": "word-くるま",
+      "surface": "くるま",
+      "readings": [
+        "くるま",
+        "じどうしゃ"
+      ],
+      "first": [
+        "く",
+        "じ"
+      ],
+      "last": [
+        "ま",
+        "や"
+      ]
+    },
+    {
+      "id": "word-バス",
+      "surface": "バス",
+      "readings": [
+        "バス"
+      ],
+      "first": [
+        "ば"
+      ],
+      "last": [
+        "す"
+      ]
+    },
+    {
+      "id": "word-じてんしゃ",
+      "surface": "じてんしゃ",
+      "readings": [
+        "じてんしゃ"
+      ],
+      "first": [
+        "じ"
+      ],
+      "last": [
+        "や"
+      ]
+    },
+    {
+      "id": "word-ひこうき",
+      "surface": "ひこうき",
+      "readings": [
+        "ひこうき"
+      ],
+      "first": [
+        "ひ"
+      ],
+      "last": [
+        "き"
+      ]
+    },
+    {
+      "id": "word-ロケット",
+      "surface": "ロケット",
+      "readings": [
+        "ロケット"
+      ],
+      "first": [
+        "ろ"
+      ],
+      "last": [
+        "と"
+      ]
+    },
+    {
+      "id": "word-ふね",
+      "surface": "ふね",
+      "readings": [
+        "ふね"
+      ],
+      "first": [
+        "ふ"
+      ],
+      "last": [
+        "ね"
+      ]
+    },
+    {
+      "id": "word-でんしゃ",
+      "surface": "でんしゃ",
+      "readings": [
+        "でんしゃ"
+      ],
+      "first": [
+        "で"
+      ],
+      "last": [
+        "や"
+      ]
+    },
+    {
+      "id": "word-タクシー",
+      "surface": "タクシー",
+      "readings": [
+        "タクシー"
+      ],
+      "first": [
+        "た"
+      ],
+      "last": [
+        "し"
+      ]
+    },
+    {
+      "id": "word-ヘリコプター",
+      "surface": "ヘリコプター",
+      "readings": [
+        "ヘリコプター"
+      ],
+      "first": [
+        "へ"
+      ],
+      "last": [
+        "た"
+      ]
+    },
+    {
+      "id": "word-ヨット",
+      "surface": "ヨット",
+      "readings": [
+        "ヨット"
+      ],
+      "first": [
+        "よ"
+      ],
+      "last": [
+        "と"
+      ]
+    },
+    {
+      "id": "word-スクーター",
+      "surface": "スクーター",
+      "readings": [
+        "スクーター"
+      ],
+      "first": [
+        "す"
+      ],
+      "last": [
+        "た"
+      ]
+    },
+    {
+      "id": "word-ギター",
+      "surface": "ギター",
+      "readings": [
+        "ギター"
+      ],
+      "first": [
+        "ぎ"
+      ],
+      "last": [
+        "た"
+      ]
+    },
+    {
+      "id": "word-ピアノ",
+      "surface": "ピアノ",
+      "readings": [
+        "ピアノ"
+      ],
+      "first": [
+        "ぴ"
+      ],
+      "last": [
+        "の"
+      ]
+    },
+    {
+      "id": "word-ドラム",
+      "surface": "ドラム",
+      "readings": [
+        "ドラム"
+      ],
+      "first": [
+        "ど"
+      ],
+      "last": [
+        "む"
+      ]
+    },
+    {
+      "id": "word-おんぷ",
+      "surface": "おんぷ",
+      "readings": [
+        "おんぷ"
+      ],
+      "first": [
+        "お"
+      ],
+      "last": [
+        "ぷ"
+      ]
+    },
+    {
+      "id": "word-トランペット",
+      "surface": "トランペット",
+      "readings": [
+        "トランペット"
+      ],
+      "first": [
+        "と"
+      ],
+      "last": [
+        "と"
+      ]
+    },
+    {
+      "id": "word-パレット",
+      "surface": "パレット",
+      "readings": [
+        "パレット"
+      ],
+      "first": [
+        "ぱ"
+      ],
+      "last": [
+        "と"
+      ]
+    },
+    {
+      "id": "word-えんげき",
+      "surface": "えんげき",
+      "readings": [
+        "えんげき"
+      ],
+      "first": [
+        "え"
+      ],
+      "last": [
+        "き"
+      ]
+    },
+    {
+      "id": "word-ほん",
+      "surface": "ほん",
+      "readings": [
+        "ほん"
+      ],
+      "first": [
+        "ほ"
+      ],
+      "last": [
+        "ん"
+      ]
+    },
+    {
+      "id": "word-パソコン",
+      "surface": "パソコン",
+      "readings": [
+        "パソコン"
+      ],
+      "first": [
+        "ぱ"
+      ],
+      "last": [
+        "ん"
+      ]
+    },
+    {
+      "id": "word-スマホ",
+      "surface": "スマホ",
+      "readings": [
+        "スマホ"
+      ],
+      "first": [
+        "す"
+      ],
+      "last": [
+        "ほ"
+      ]
+    },
+    {
+      "id": "word-うでどけい",
+      "surface": "うでどけい",
+      "readings": [
+        "うでどけい"
+      ],
+      "first": [
+        "う"
+      ],
+      "last": [
+        "い"
+      ]
+    },
+    {
+      "id": "word-かぎ",
+      "surface": "かぎ",
+      "readings": [
+        "かぎ"
+      ],
+      "first": [
+        "か"
+      ],
+      "last": [
+        "ぎ"
+      ]
+    },
+    {
+      "id": "word-でんきゅう",
+      "surface": "でんきゅう",
+      "readings": [
+        "でんきゅう"
+      ],
+      "first": [
+        "で"
+      ],
+      "last": [
+        "う"
+      ]
+    },
+    {
+      "id": "word-プレゼント",
+      "surface": "プレゼント",
+      "readings": [
+        "プレゼント"
+      ],
+      "first": [
+        "ぷ"
+      ],
+      "last": [
+        "と"
+      ]
+    },
+    {
+      "id": "word-かさ",
+      "surface": "かさ",
+      "readings": [
+        "かさ"
+      ],
+      "first": [
+        "か"
+      ],
+      "last": [
+        "さ"
+      ]
+    },
+    {
+      "id": "word-てがみ",
+      "surface": "てがみ",
+      "readings": [
+        "てがみ"
+      ],
+      "first": [
+        "て"
+      ],
+      "last": [
+        "み"
+      ]
+    },
+    {
+      "id": "word-はさみ",
+      "surface": "はさみ",
+      "readings": [
+        "はさみ"
+      ],
+      "first": [
+        "は"
+      ],
+      "last": [
+        "み"
+      ]
+    },
+    {
+      "id": "word-じしゃく",
+      "surface": "じしゃく",
+      "readings": [
+        "じしゃく"
+      ],
+      "first": [
+        "じ"
+      ],
+      "last": [
+        "く"
+      ]
+    },
+    {
+      "id": "word-サッカー",
+      "surface": "サッカー",
+      "readings": [
+        "サッカー"
+      ],
+      "first": [
+        "さ"
+      ],
+      "last": [
+        "か"
+      ]
+    },
+    {
+      "id": "word-バスケ",
+      "surface": "バスケ",
+      "readings": [
+        "バスケ"
+      ],
+      "first": [
+        "ば"
+      ],
+      "last": [
+        "け"
+      ]
+    },
+    {
+      "id": "word-テニス",
+      "surface": "テニス",
+      "readings": [
+        "テニス"
+      ],
+      "first": [
+        "て"
+      ],
+      "last": [
+        "す"
+      ]
+    },
+    {
+      "id": "word-ゲーム",
+      "surface": "ゲーム",
+      "readings": [
+        "ゲーム"
+      ],
+      "first": [
+        "げ"
+      ],
+      "last": [
+        "む"
+      ]
+    },
+    {
+      "id": "word-つり",
+      "surface": "つり",
+      "readings": [
+        "つり"
+      ],
+      "first": [
+        "つ"
+      ],
+      "last": [
+        "り"
+      ]
+    },
+    {
+      "id": "word-ボクシング",
+      "surface": "ボクシング",
+      "readings": [
+        "ボクシング"
+      ],
+      "first": [
+        "ぼ"
+      ],
+      "last": [
+        "ぐ"
+      ]
+    },
+    {
+      "id": "word-すし",
+      "surface": "すし",
+      "readings": [
+        "すし"
+      ],
+      "first": [
+        "す"
+      ],
+      "last": [
+        "し"
+      ]
+    },
+    {
+      "id": "word-ラーメン",
+      "surface": "ラーメン",
+      "readings": [
+        "ラーメン"
+      ],
+      "first": [
+        "ら"
+      ],
+      "last": [
+        "ん"
+      ]
+    },
+    {
+      "id": "word-ピザ",
+      "surface": "ピザ",
+      "readings": [
+        "ピザ"
+      ],
+      "first": [
+        "ぴ"
+      ],
+      "last": [
+        "ざ"
+      ]
+    },
+    {
+      "id": "word-ハンバーガー",
+      "surface": "ハンバーガー",
+      "readings": [
+        "ハンバーガー"
+      ],
+      "first": [
+        "は"
+      ],
+      "last": [
+        "が"
+      ]
+    },
+    {
+      "id": "word-ケーキ",
+      "surface": "ケーキ",
+      "readings": [
+        "ケーキ"
+      ],
+      "first": [
+        "け"
+      ],
+      "last": [
+        "き"
+      ]
+    },
+    {
+      "id": "word-アイス",
+      "surface": "アイス",
+      "readings": [
+        "アイス"
+      ],
+      "first": [
+        "あ"
+      ],
+      "last": [
+        "す"
+      ]
+    },
+    {
+      "id": "word-チョコ",
+      "surface": "チョコ",
+      "readings": [
+        "チョコ"
+      ],
+      "first": [
+        "ち"
+      ],
+      "last": [
+        "こ"
+      ]
+    },
+    {
+      "id": "word-たまご",
+      "surface": "たまご",
+      "readings": [
+        "たまご"
+      ],
+      "first": [
+        "た"
+      ],
+      "last": [
+        "ご"
+      ]
+    },
+    {
+      "id": "word-パン",
+      "surface": "パン",
+      "readings": [
+        "パン"
+      ],
+      "first": [
+        "ぱ"
+      ],
+      "last": [
+        "ん"
+      ]
+    },
+    {
+      "id": "word-クロワッサン",
+      "surface": "クロワッサン",
+      "readings": [
+        "クロワッサン"
+      ],
+      "first": [
+        "く"
+      ],
+      "last": [
+        "ん"
+      ]
+    },
+    {
+      "id": "word-クッキー",
+      "surface": "クッキー",
+      "readings": [
+        "クッキー"
+      ],
+      "first": [
+        "く"
+      ],
+      "last": [
+        "き"
+      ]
+    },
+    {
+      "id": "word-コーヒー",
+      "surface": "コーヒー",
+      "readings": [
+        "コーヒー"
+      ],
+      "first": [
+        "こ"
+      ],
+      "last": [
+        "ひ"
+      ]
+    },
+    {
+      "id": "word-おちゃ",
+      "surface": "おちゃ",
+      "readings": [
+        "おちゃ"
+      ],
+      "first": [
+        "お"
+      ],
+      "last": [
+        "や"
+      ]
+    },
+    {
+      "id": "word-ジュース",
+      "surface": "ジュース",
+      "readings": [
+        "ジュース"
+      ],
+      "first": [
+        "じ"
+      ],
+      "last": [
+        "す"
+      ]
+    },
+    {
+      "id": "word-ビール",
+      "surface": "ビール",
+      "readings": [
+        "ビール"
+      ],
+      "first": [
+        "び"
+      ],
+      "last": [
+        "る"
+      ]
+    },
+    {
+      "id": "word-ワイン",
+      "surface": "ワイン",
+      "readings": [
+        "ワイン"
+      ],
+      "first": [
+        "わ"
+      ],
+      "last": [
+        "ん"
+      ]
+    },
+    {
+      "id": "word-ジュース",
+      "surface": "ジュース",
+      "readings": [
+        "ジュース"
+      ],
+      "first": [
+        "じ"
+      ],
+      "last": [
+        "す"
+      ]
+    },
+    {
+      "id": "word-め",
+      "surface": "め",
+      "readings": [
+        "め"
+      ],
+      "first": [
+        "め"
+      ],
+      "last": [
+        "め"
+      ]
+    },
+    {
+      "id": "word-みみ",
+      "surface": "みみ",
+      "readings": [
+        "みみ"
+      ],
+      "first": [
+        "み"
+      ],
+      "last": [
+        "み"
+      ]
+    },
+    {
+      "id": "word-はな",
+      "surface": "はな",
+      "readings": [
+        "はな"
+      ],
+      "first": [
+        "は"
+      ],
+      "last": [
+        "な"
+      ]
+    },
+    {
+      "id": "word-くち",
+      "surface": "くち",
+      "readings": [
+        "くち"
+      ],
+      "first": [
+        "く"
+      ],
+      "last": [
+        "ち"
+      ]
+    },
+    {
+      "id": "word-は",
+      "surface": "は",
+      "readings": [
+        "は"
+      ],
+      "first": [
+        "は"
+      ],
+      "last": [
+        "は"
+      ]
+    },
+    {
+      "id": "word-しんぞう",
+      "surface": "しんぞう",
+      "readings": [
+        "しんぞう"
+      ],
+      "first": [
+        "し"
+      ],
+      "last": [
+        "う"
+      ]
+    },
+    {
+      "id": "word-ごりら",
+      "surface": "ごりら",
+      "readings": [
+        "ごりら"
+      ],
+      "first": [
+        "ご"
+      ],
+      "last": [
+        "ら"
+      ]
+    }
+  ],
+  "edges": [
+    {
+      "from": "word-りんご",
+      "to": "word-ごりら",
+      "sound": "ご"
+    },
+    {
+      "from": "word-アボカド",
+      "to": "word-ドラム",
+      "sound": "ど"
+    },
+    {
+      "from": "word-バナナ",
+      "to": "word-なす",
+      "sound": "な"
+    },
+    {
+      "from": "word-バナナ",
+      "to": "word-なみ",
+      "sound": "な"
+    },
+    {
+      "from": "word-ブルーベリー",
+      "to": "word-りんご",
+      "sound": "り"
+    },
+    {
+      "from": "word-ぶどう",
+      "to": "word-うさぎ",
+      "sound": "う"
+    },
+    {
+      "from": "word-ぶどう",
+      "to": "word-うし",
+      "sound": "う"
+    },
+    {
+      "from": "word-ぶどう",
+      "to": "word-うま",
+      "sound": "う"
+    },
+    {
+      "from": "word-ぶどう",
+      "to": "word-うでどけい",
+      "sound": "う"
+    },
+    {
+      "from": "word-いちご",
+      "to": "word-ごりら",
+      "sound": "ご"
+    },
+    {
+      "from": "word-ブロッコリー",
+      "to": "word-りんご",
+      "sound": "り"
+    },
+    {
+      "from": "word-とうもろこし",
+      "to": "word-しまうま",
+      "sound": "し"
+    },
+    {
+      "from": "word-とうもろこし",
+      "to": "word-しま",
+      "sound": "し"
+    },
+    {
+      "from": "word-とうもろこし",
+      "to": "word-しんぞう",
+      "sound": "し"
+    },
+    {
+      "from": "word-なす",
+      "to": "word-スクーター",
+      "sound": "す"
+    },
+    {
+      "from": "word-なす",
+      "to": "word-スマホ",
+      "sound": "す"
+    },
+    {
+      "from": "word-なす",
+      "to": "word-すし",
+      "sound": "す"
+    },
+    {
+      "from": "word-トマト",
+      "to": "word-とうもろこし",
+      "sound": "と"
+    },
+    {
+      "from": "word-トマト",
+      "to": "word-トマト",
+      "sound": "と"
+    },
+    {
+      "from": "word-トマト",
+      "to": "word-とら",
+      "sound": "と"
+    },
+    {
+      "from": "word-トマト",
+      "to": "word-とり",
+      "sound": "と"
+    },
+    {
+      "from": "word-トマト",
+      "to": "word-トランペット",
+      "sound": "と"
+    },
+    {
+      "from": "word-きのこ",
+      "to": "word-コアラ",
+      "sound": "こ"
+    },
+    {
+      "from": "word-きのこ",
+      "to": "word-コンビニ",
+      "sound": "こ"
+    },
+    {
+      "from": "word-きのこ",
+      "to": "word-コーヒー",
+      "sound": "こ"
+    },
+    {
+      "from": "word-レタス",
+      "to": "word-スクーター",
+      "sound": "す"
+    },
+    {
+      "from": "word-レタス",
+      "to": "word-スマホ",
+      "sound": "す"
+    },
+    {
+      "from": "word-レタス",
+      "to": "word-すし",
+      "sound": "す"
+    },
+    {
+      "from": "word-たまねぎ",
+      "to": "word-ぎんこう",
+      "sound": "ぎ"
+    },
+    {
+      "from": "word-たまねぎ",
+      "to": "word-ギター",
+      "sound": "ぎ"
+    },
+    {
+      "from": "word-じゃがいも",
+      "to": "word-もみじ",
+      "sound": "も"
+    },
+    {
+      "from": "word-ねこ",
+      "to": "word-コアラ",
+      "sound": "こ"
+    },
+    {
+      "from": "word-ねこ",
+      "to": "word-コンビニ",
+      "sound": "こ"
+    },
+    {
+      "from": "word-ねこ",
+      "to": "word-コーヒー",
+      "sound": "こ"
+    },
+    {
+      "from": "word-ねずみ",
+      "to": "word-みかん",
+      "sound": "み"
+    },
+    {
+      "from": "word-ねずみ",
+      "to": "word-みつばち",
+      "sound": "み"
+    },
+    {
+      "from": "word-ねずみ",
+      "to": "word-みみ",
+      "sound": "み"
+    },
+    {
+      "from": "word-うさぎ",
+      "to": "word-ぎんこう",
+      "sound": "ぎ"
+    },
+    {
+      "from": "word-うさぎ",
+      "to": "word-ギター",
+      "sound": "ぎ"
+    },
+    {
+      "from": "word-きつね",
+      "to": "word-ねこ",
+      "sound": "ね"
+    },
+    {
+      "from": "word-きつね",
+      "to": "word-ねずみ",
+      "sound": "ね"
+    },
+    {
+      "from": "word-コアラ",
+      "to": "word-らいおん",
+      "sound": "ら"
+    },
+    {
+      "from": "word-コアラ",
+      "to": "word-ラーメン",
+      "sound": "ら"
+    },
+    {
+      "from": "word-とら",
+      "to": "word-らいおん",
+      "sound": "ら"
+    },
+    {
+      "from": "word-とら",
+      "to": "word-ラーメン",
+      "sound": "ら"
+    },
+    {
+      "from": "word-ぶた",
+      "to": "word-たまねぎ",
+      "sound": "た"
+    },
+    {
+      "from": "word-ぶた",
+      "to": "word-たいよう",
+      "sound": "た"
+    },
+    {
+      "from": "word-ぶた",
+      "to": "word-タクシー",
+      "sound": "た"
+    },
+    {
+      "from": "word-ぶた",
+      "to": "word-たまご",
+      "sound": "た"
+    },
+    {
+      "from": "word-うし",
+      "to": "word-しまうま",
+      "sound": "し"
+    },
+    {
+      "from": "word-うし",
+      "to": "word-しま",
+      "sound": "し"
+    },
+    {
+      "from": "word-うし",
+      "to": "word-しんぞう",
+      "sound": "し"
+    },
+    {
+      "from": "word-にわとり",
+      "to": "word-りんご",
+      "sound": "り"
+    },
+    {
+      "from": "word-とり",
+      "to": "word-りんご",
+      "sound": "り"
+    },
+    {
+      "from": "word-ぞう",
+      "to": "word-うさぎ",
+      "sound": "う"
+    },
+    {
+      "from": "word-ぞう",
+      "to": "word-うし",
+      "sound": "う"
+    },
+    {
+      "from": "word-ぞう",
+      "to": "word-うま",
+      "sound": "う"
+    },
+    {
+      "from": "word-ぞう",
+      "to": "word-うでどけい",
+      "sound": "う"
+    },
+    {
+      "from": "word-わし",
+      "to": "word-しまうま",
+      "sound": "し"
+    },
+    {
+      "from": "word-わし",
+      "to": "word-しま",
+      "sound": "し"
+    },
+    {
+      "from": "word-わし",
+      "to": "word-しんぞう",
+      "sound": "し"
+    },
+    {
+      "from": "word-ひつじ",
+      "to": "word-じゃがいも",
+      "sound": "じ"
+    },
+    {
+      "from": "word-ひつじ",
+      "to": "word-くるま",
+      "sound": "じ"
+    },
+    {
+      "from": "word-ひつじ",
+      "to": "word-じてんしゃ",
+      "sound": "じ"
+    },
+    {
+      "from": "word-ひつじ",
+      "to": "word-じしゃく",
+      "sound": "じ"
+    },
+    {
+      "from": "word-ひつじ",
+      "to": "word-ジュース",
+      "sound": "じ"
+    },
+    {
+      "from": "word-ひつじ",
+      "to": "word-ジュース",
+      "sound": "じ"
+    },
+    {
+      "from": "word-へび",
+      "to": "word-びょういん",
+      "sound": "び"
+    },
+    {
+      "from": "word-へび",
+      "to": "word-ビール",
+      "sound": "び"
+    },
+    {
+      "from": "word-くじら",
+      "to": "word-らいおん",
+      "sound": "ら"
+    },
+    {
+      "from": "word-くじら",
+      "to": "word-ラーメン",
+      "sound": "ら"
+    },
+    {
+      "from": "word-ちょうちょ",
+      "to": "word-ヨット",
+      "sound": "よ"
+    },
+    {
+      "from": "word-みつばち",
+      "to": "word-ちょうちょ",
+      "sound": "ち"
+    },
+    {
+      "from": "word-みつばち",
+      "to": "word-ちきゅう",
+      "sound": "ち"
+    },
+    {
+      "from": "word-みつばち",
+      "to": "word-チョコ",
+      "sound": "ち"
+    },
+    {
+      "from": "word-てんとうむし",
+      "to": "word-しまうま",
+      "sound": "し"
+    },
+    {
+      "from": "word-てんとうむし",
+      "to": "word-しま",
+      "sound": "し"
+    },
+    {
+      "from": "word-てんとうむし",
+      "to": "word-しんぞう",
+      "sound": "し"
+    },
+    {
+      "from": "word-あり",
+      "to": "word-りんご",
+      "sound": "り"
+    },
+    {
+      "from": "word-さくら",
+      "to": "word-らいおん",
+      "sound": "ら"
+    },
+    {
+      "from": "word-さくら",
+      "to": "word-ラーメン",
+      "sound": "ら"
+    },
+    {
+      "from": "word-ひまわり",
+      "to": "word-りんご",
+      "sound": "り"
+    },
+    {
+      "from": "word-き",
+      "to": "word-きのこ",
+      "sound": "き"
+    },
+    {
+      "from": "word-き",
+      "to": "word-きつね",
+      "sound": "き"
+    },
+    {
+      "from": "word-き",
+      "to": "word-きりん",
+      "sound": "き"
+    },
+    {
+      "from": "word-き",
+      "to": "word-き",
+      "sound": "き"
+    },
+    {
+      "from": "word-もみじ",
+      "to": "word-じゃがいも",
+      "sound": "じ"
+    },
+    {
+      "from": "word-もみじ",
+      "to": "word-くるま",
+      "sound": "じ"
+    },
+    {
+      "from": "word-もみじ",
+      "to": "word-じてんしゃ",
+      "sound": "じ"
+    },
+    {
+      "from": "word-もみじ",
+      "to": "word-じしゃく",
+      "sound": "じ"
+    },
+    {
+      "from": "word-もみじ",
+      "to": "word-ジュース",
+      "sound": "じ"
+    },
+    {
+      "from": "word-もみじ",
+      "to": "word-ジュース",
+      "sound": "じ"
+    },
+    {
+      "from": "word-ばら",
+      "to": "word-らいおん",
+      "sound": "ら"
+    },
+    {
+      "from": "word-ばら",
+      "to": "word-ラーメン",
+      "sound": "ら"
+    },
+    {
+      "from": "word-なみ",
+      "to": "word-みかん",
+      "sound": "み"
+    },
+    {
+      "from": "word-なみ",
+      "to": "word-みつばち",
+      "sound": "み"
+    },
+    {
+      "from": "word-なみ",
+      "to": "word-みみ",
+      "sound": "み"
+    },
+    {
+      "from": "word-ひ",
+      "to": "word-ひつじ",
+      "sound": "ひ"
+    },
+    {
+      "from": "word-ひ",
+      "to": "word-ひまわり",
+      "sound": "ひ"
+    },
+    {
+      "from": "word-ひ",
+      "to": "word-ひ",
+      "sound": "ひ"
+    },
+    {
+      "from": "word-ひ",
+      "to": "word-ひこうき",
+      "sound": "ひ"
+    },
+    {
+      "from": "word-ちきゅう",
+      "to": "word-うさぎ",
+      "sound": "う"
+    },
+    {
+      "from": "word-ちきゅう",
+      "to": "word-うし",
+      "sound": "う"
+    },
+    {
+      "from": "word-ちきゅう",
+      "to": "word-うま",
+      "sound": "う"
+    },
+    {
+      "from": "word-ちきゅう",
+      "to": "word-うでどけい",
+      "sound": "う"
+    },
+    {
+      "from": "word-にじ",
+      "to": "word-じゃがいも",
+      "sound": "じ"
+    },
+    {
+      "from": "word-にじ",
+      "to": "word-くるま",
+      "sound": "じ"
+    },
+    {
+      "from": "word-にじ",
+      "to": "word-じてんしゃ",
+      "sound": "じ"
+    },
+    {
+      "from": "word-にじ",
+      "to": "word-じしゃく",
+      "sound": "じ"
+    },
+    {
+      "from": "word-にじ",
+      "to": "word-ジュース",
+      "sound": "じ"
+    },
+    {
+      "from": "word-にじ",
+      "to": "word-ジュース",
+      "sound": "じ"
+    },
+    {
+      "from": "word-ほし",
+      "to": "word-しまうま",
+      "sound": "し"
+    },
+    {
+      "from": "word-ほし",
+      "to": "word-しま",
+      "sound": "し"
+    },
+    {
+      "from": "word-ほし",
+      "to": "word-しんぞう",
+      "sound": "し"
+    },
+    {
+      "from": "word-つき",
+      "to": "word-きのこ",
+      "sound": "き"
+    },
+    {
+      "from": "word-つき",
+      "to": "word-きつね",
+      "sound": "き"
+    },
+    {
+      "from": "word-つき",
+      "to": "word-きりん",
+      "sound": "き"
+    },
+    {
+      "from": "word-つき",
+      "to": "word-き",
+      "sound": "き"
+    },
+    {
+      "from": "word-たいよう",
+      "to": "word-うさぎ",
+      "sound": "う"
+    },
+    {
+      "from": "word-たいよう",
+      "to": "word-うし",
+      "sound": "う"
+    },
+    {
+      "from": "word-たいよう",
+      "to": "word-うま",
+      "sound": "う"
+    },
+    {
+      "from": "word-たいよう",
+      "to": "word-うでどけい",
+      "sound": "う"
+    },
+    {
+      "from": "word-くも",
+      "to": "word-もみじ",
+      "sound": "も"
+    },
+    {
+      "from": "word-かみなり",
+      "to": "word-りんご",
+      "sound": "り"
+    },
+    {
+      "from": "word-ゆき",
+      "to": "word-きのこ",
+      "sound": "き"
+    },
+    {
+      "from": "word-ゆき",
+      "to": "word-きつね",
+      "sound": "き"
+    },
+    {
+      "from": "word-ゆき",
+      "to": "word-きりん",
+      "sound": "き"
+    },
+    {
+      "from": "word-ゆき",
+      "to": "word-き",
+      "sound": "き"
+    },
+    {
+      "from": "word-いえ",
+      "to": "word-えんげき",
+      "sound": "え"
+    },
+    {
+      "from": "word-がっこう",
+      "to": "word-うさぎ",
+      "sound": "う"
+    },
+    {
+      "from": "word-がっこう",
+      "to": "word-うし",
+      "sound": "う"
+    },
+    {
+      "from": "word-がっこう",
+      "to": "word-うま",
+      "sound": "う"
+    },
+    {
+      "from": "word-がっこう",
+      "to": "word-うでどけい",
+      "sound": "う"
+    },
+    {
+      "from": "word-ぎんこう",
+      "to": "word-うさぎ",
+      "sound": "う"
+    },
+    {
+      "from": "word-ぎんこう",
+      "to": "word-うし",
+      "sound": "う"
+    },
+    {
+      "from": "word-ぎんこう",
+      "to": "word-うま",
+      "sound": "う"
+    },
+    {
+      "from": "word-ぎんこう",
+      "to": "word-うでどけい",
+      "sound": "う"
+    },
+    {
+      "from": "word-コンビニ",
+      "to": "word-にんじん",
+      "sound": "に"
+    },
+    {
+      "from": "word-コンビニ",
+      "to": "word-にわとり",
+      "sound": "に"
+    },
+    {
+      "from": "word-コンビニ",
+      "to": "word-にじ",
+      "sound": "に"
+    },
+    {
+      "from": "word-おしろ",
+      "to": "word-ロケット",
+      "sound": "ろ"
+    },
+    {
+      "from": "word-バス",
+      "to": "word-スクーター",
+      "sound": "す"
+    },
+    {
+      "from": "word-バス",
+      "to": "word-スマホ",
+      "sound": "す"
+    },
+    {
+      "from": "word-バス",
+      "to": "word-すし",
+      "sound": "す"
+    },
+    {
+      "from": "word-ひこうき",
+      "to": "word-きのこ",
+      "sound": "き"
+    },
+    {
+      "from": "word-ひこうき",
+      "to": "word-きつね",
+      "sound": "き"
+    },
+    {
+      "from": "word-ひこうき",
+      "to": "word-きりん",
+      "sound": "き"
+    },
+    {
+      "from": "word-ひこうき",
+      "to": "word-き",
+      "sound": "き"
+    },
+    {
+      "from": "word-ロケット",
+      "to": "word-とうもろこし",
+      "sound": "と"
+    },
+    {
+      "from": "word-ロケット",
+      "to": "word-トマト",
+      "sound": "と"
+    },
+    {
+      "from": "word-ロケット",
+      "to": "word-とら",
+      "sound": "と"
+    },
+    {
+      "from": "word-ロケット",
+      "to": "word-とり",
+      "sound": "と"
+    },
+    {
+      "from": "word-ロケット",
+      "to": "word-トランペット",
+      "sound": "と"
+    },
+    {
+      "from": "word-ふね",
+      "to": "word-ねこ",
+      "sound": "ね"
+    },
+    {
+      "from": "word-ふね",
+      "to": "word-ねずみ",
+      "sound": "ね"
+    },
+    {
+      "from": "word-タクシー",
+      "to": "word-しまうま",
+      "sound": "し"
+    },
+    {
+      "from": "word-タクシー",
+      "to": "word-しま",
+      "sound": "し"
+    },
+    {
+      "from": "word-タクシー",
+      "to": "word-しんぞう",
+      "sound": "し"
+    },
+    {
+      "from": "word-ヘリコプター",
+      "to": "word-たまねぎ",
+      "sound": "た"
+    },
+    {
+      "from": "word-ヘリコプター",
+      "to": "word-たいよう",
+      "sound": "た"
+    },
+    {
+      "from": "word-ヘリコプター",
+      "to": "word-タクシー",
+      "sound": "た"
+    },
+    {
+      "from": "word-ヘリコプター",
+      "to": "word-たまご",
+      "sound": "た"
+    },
+    {
+      "from": "word-ヨット",
+      "to": "word-とうもろこし",
+      "sound": "と"
+    },
+    {
+      "from": "word-ヨット",
+      "to": "word-トマト",
+      "sound": "と"
+    },
+    {
+      "from": "word-ヨット",
+      "to": "word-とら",
+      "sound": "と"
+    },
+    {
+      "from": "word-ヨット",
+      "to": "word-とり",
+      "sound": "と"
+    },
+    {
+      "from": "word-ヨット",
+      "to": "word-トランペット",
+      "sound": "と"
+    },
+    {
+      "from": "word-スクーター",
+      "to": "word-たまねぎ",
+      "sound": "た"
+    },
+    {
+      "from": "word-スクーター",
+      "to": "word-たいよう",
+      "sound": "た"
+    },
+    {
+      "from": "word-スクーター",
+      "to": "word-タクシー",
+      "sound": "た"
+    },
+    {
+      "from": "word-スクーター",
+      "to": "word-たまご",
+      "sound": "た"
+    },
+    {
+      "from": "word-ギター",
+      "to": "word-たまねぎ",
+      "sound": "た"
+    },
+    {
+      "from": "word-ギター",
+      "to": "word-たいよう",
+      "sound": "た"
+    },
+    {
+      "from": "word-ギター",
+      "to": "word-タクシー",
+      "sound": "た"
+    },
+    {
+      "from": "word-ギター",
+      "to": "word-たまご",
+      "sound": "た"
+    },
+    {
+      "from": "word-おんぷ",
+      "to": "word-プレゼント",
+      "sound": "ぷ"
+    },
+    {
+      "from": "word-トランペット",
+      "to": "word-とうもろこし",
+      "sound": "と"
+    },
+    {
+      "from": "word-トランペット",
+      "to": "word-トマト",
+      "sound": "と"
+    },
+    {
+      "from": "word-トランペット",
+      "to": "word-とら",
+      "sound": "と"
+    },
+    {
+      "from": "word-トランペット",
+      "to": "word-とり",
+      "sound": "と"
+    },
+    {
+      "from": "word-トランペット",
+      "to": "word-トランペット",
+      "sound": "と"
+    },
+    {
+      "from": "word-パレット",
+      "to": "word-とうもろこし",
+      "sound": "と"
+    },
+    {
+      "from": "word-パレット",
+      "to": "word-トマト",
+      "sound": "と"
+    },
+    {
+      "from": "word-パレット",
+      "to": "word-とら",
+      "sound": "と"
+    },
+    {
+      "from": "word-パレット",
+      "to": "word-とり",
+      "sound": "と"
+    },
+    {
+      "from": "word-パレット",
+      "to": "word-トランペット",
+      "sound": "と"
+    },
+    {
+      "from": "word-えんげき",
+      "to": "word-きのこ",
+      "sound": "き"
+    },
+    {
+      "from": "word-えんげき",
+      "to": "word-きつね",
+      "sound": "き"
+    },
+    {
+      "from": "word-えんげき",
+      "to": "word-きりん",
+      "sound": "き"
+    },
+    {
+      "from": "word-えんげき",
+      "to": "word-き",
+      "sound": "き"
+    },
+    {
+      "from": "word-スマホ",
+      "to": "word-ほし",
+      "sound": "ほ"
+    },
+    {
+      "from": "word-スマホ",
+      "to": "word-ほん",
+      "sound": "ほ"
+    },
+    {
+      "from": "word-うでどけい",
+      "to": "word-いちご",
+      "sound": "い"
+    },
+    {
+      "from": "word-うでどけい",
+      "to": "word-いぬ",
+      "sound": "い"
+    },
+    {
+      "from": "word-うでどけい",
+      "to": "word-いえ",
+      "sound": "い"
+    },
+    {
+      "from": "word-かぎ",
+      "to": "word-ぎんこう",
+      "sound": "ぎ"
+    },
+    {
+      "from": "word-かぎ",
+      "to": "word-ギター",
+      "sound": "ぎ"
+    },
+    {
+      "from": "word-でんきゅう",
+      "to": "word-うさぎ",
+      "sound": "う"
+    },
+    {
+      "from": "word-でんきゅう",
+      "to": "word-うし",
+      "sound": "う"
+    },
+    {
+      "from": "word-でんきゅう",
+      "to": "word-うま",
+      "sound": "う"
+    },
+    {
+      "from": "word-でんきゅう",
+      "to": "word-うでどけい",
+      "sound": "う"
+    },
+    {
+      "from": "word-プレゼント",
+      "to": "word-とうもろこし",
+      "sound": "と"
+    },
+    {
+      "from": "word-プレゼント",
+      "to": "word-トマト",
+      "sound": "と"
+    },
+    {
+      "from": "word-プレゼント",
+      "to": "word-とら",
+      "sound": "と"
+    },
+    {
+      "from": "word-プレゼント",
+      "to": "word-とり",
+      "sound": "と"
+    },
+    {
+      "from": "word-プレゼント",
+      "to": "word-トランペット",
+      "sound": "と"
+    },
+    {
+      "from": "word-かさ",
+      "to": "word-さくら",
+      "sound": "さ"
+    },
+    {
+      "from": "word-かさ",
+      "to": "word-サボテン",
+      "sound": "さ"
+    },
+    {
+      "from": "word-かさ",
+      "to": "word-サッカー",
+      "sound": "さ"
+    },
+    {
+      "from": "word-てがみ",
+      "to": "word-みかん",
+      "sound": "み"
+    },
+    {
+      "from": "word-てがみ",
+      "to": "word-みつばち",
+      "sound": "み"
+    },
+    {
+      "from": "word-てがみ",
+      "to": "word-みみ",
+      "sound": "み"
+    },
+    {
+      "from": "word-はさみ",
+      "to": "word-みかん",
+      "sound": "み"
+    },
+    {
+      "from": "word-はさみ",
+      "to": "word-みつばち",
+      "sound": "み"
+    },
+    {
+      "from": "word-はさみ",
+      "to": "word-みみ",
+      "sound": "み"
+    },
+    {
+      "from": "word-じしゃく",
+      "to": "word-くま",
+      "sound": "く"
+    },
+    {
+      "from": "word-じしゃく",
+      "to": "word-くじら",
+      "sound": "く"
+    },
+    {
+      "from": "word-じしゃく",
+      "to": "word-くも",
+      "sound": "く"
+    },
+    {
+      "from": "word-じしゃく",
+      "to": "word-くるま",
+      "sound": "く"
+    },
+    {
+      "from": "word-じしゃく",
+      "to": "word-クロワッサン",
+      "sound": "く"
+    },
+    {
+      "from": "word-じしゃく",
+      "to": "word-クッキー",
+      "sound": "く"
+    },
+    {
+      "from": "word-じしゃく",
+      "to": "word-くち",
+      "sound": "く"
+    },
+    {
+      "from": "word-サッカー",
+      "to": "word-かえる",
+      "sound": "か"
+    },
+    {
+      "from": "word-サッカー",
+      "to": "word-かざん",
+      "sound": "か"
+    },
+    {
+      "from": "word-サッカー",
+      "to": "word-かみなり",
+      "sound": "か"
+    },
+    {
+      "from": "word-サッカー",
+      "to": "word-かぎ",
+      "sound": "か"
+    },
+    {
+      "from": "word-サッカー",
+      "to": "word-かさ",
+      "sound": "か"
+    },
+    {
+      "from": "word-バスケ",
+      "to": "word-ケーキ",
+      "sound": "け"
+    },
+    {
+      "from": "word-テニス",
+      "to": "word-スクーター",
+      "sound": "す"
+    },
+    {
+      "from": "word-テニス",
+      "to": "word-スマホ",
+      "sound": "す"
+    },
+    {
+      "from": "word-テニス",
+      "to": "word-すし",
+      "sound": "す"
+    },
+    {
+      "from": "word-つり",
+      "to": "word-りんご",
+      "sound": "り"
+    },
+    {
+      "from": "word-すし",
+      "to": "word-しまうま",
+      "sound": "し"
+    },
+    {
+      "from": "word-すし",
+      "to": "word-しま",
+      "sound": "し"
+    },
+    {
+      "from": "word-すし",
+      "to": "word-しんぞう",
+      "sound": "し"
+    },
+    {
+      "from": "word-ハンバーガー",
+      "to": "word-がっこう",
+      "sound": "が"
+    },
+    {
+      "from": "word-ケーキ",
+      "to": "word-きのこ",
+      "sound": "き"
+    },
+    {
+      "from": "word-ケーキ",
+      "to": "word-きつね",
+      "sound": "き"
+    },
+    {
+      "from": "word-ケーキ",
+      "to": "word-きりん",
+      "sound": "き"
+    },
+    {
+      "from": "word-ケーキ",
+      "to": "word-き",
+      "sound": "き"
+    },
+    {
+      "from": "word-アイス",
+      "to": "word-スクーター",
+      "sound": "す"
+    },
+    {
+      "from": "word-アイス",
+      "to": "word-スマホ",
+      "sound": "す"
+    },
+    {
+      "from": "word-アイス",
+      "to": "word-すし",
+      "sound": "す"
+    },
+    {
+      "from": "word-チョコ",
+      "to": "word-コアラ",
+      "sound": "こ"
+    },
+    {
+      "from": "word-チョコ",
+      "to": "word-コンビニ",
+      "sound": "こ"
+    },
+    {
+      "from": "word-チョコ",
+      "to": "word-コーヒー",
+      "sound": "こ"
+    },
+    {
+      "from": "word-たまご",
+      "to": "word-ごりら",
+      "sound": "ご"
+    },
+    {
+      "from": "word-クッキー",
+      "to": "word-きのこ",
+      "sound": "き"
+    },
+    {
+      "from": "word-クッキー",
+      "to": "word-きつね",
+      "sound": "き"
+    },
+    {
+      "from": "word-クッキー",
+      "to": "word-きりん",
+      "sound": "き"
+    },
+    {
+      "from": "word-クッキー",
+      "to": "word-き",
+      "sound": "き"
+    },
+    {
+      "from": "word-コーヒー",
+      "to": "word-ひつじ",
+      "sound": "ひ"
+    },
+    {
+      "from": "word-コーヒー",
+      "to": "word-ひまわり",
+      "sound": "ひ"
+    },
+    {
+      "from": "word-コーヒー",
+      "to": "word-ひ",
+      "sound": "ひ"
+    },
+    {
+      "from": "word-コーヒー",
+      "to": "word-ひこうき",
+      "sound": "ひ"
+    },
+    {
+      "from": "word-ジュース",
+      "to": "word-スクーター",
+      "sound": "す"
+    },
+    {
+      "from": "word-ジュース",
+      "to": "word-スマホ",
+      "sound": "す"
+    },
+    {
+      "from": "word-ジュース",
+      "to": "word-すし",
+      "sound": "す"
+    },
+    {
+      "from": "word-ジュース",
+      "to": "word-スクーター",
+      "sound": "す"
+    },
+    {
+      "from": "word-ジュース",
+      "to": "word-スマホ",
+      "sound": "す"
+    },
+    {
+      "from": "word-ジュース",
+      "to": "word-すし",
+      "sound": "す"
+    },
+    {
+      "from": "word-め",
+      "to": "word-め",
+      "sound": "め"
+    },
+    {
+      "from": "word-みみ",
+      "to": "word-みかん",
+      "sound": "み"
+    },
+    {
+      "from": "word-みみ",
+      "to": "word-みつばち",
+      "sound": "み"
+    },
+    {
+      "from": "word-みみ",
+      "to": "word-みみ",
+      "sound": "み"
+    },
+    {
+      "from": "word-はな",
+      "to": "word-なす",
+      "sound": "な"
+    },
+    {
+      "from": "word-はな",
+      "to": "word-なみ",
+      "sound": "な"
+    },
+    {
+      "from": "word-くち",
+      "to": "word-ちょうちょ",
+      "sound": "ち"
+    },
+    {
+      "from": "word-くち",
+      "to": "word-ちきゅう",
+      "sound": "ち"
+    },
+    {
+      "from": "word-くち",
+      "to": "word-チョコ",
+      "sound": "ち"
+    },
+    {
+      "from": "word-は",
+      "to": "word-はさみ",
+      "sound": "は"
+    },
+    {
+      "from": "word-は",
+      "to": "word-ハンバーガー",
+      "sound": "は"
+    },
+    {
+      "from": "word-は",
+      "to": "word-はな",
+      "sound": "は"
+    },
+    {
+      "from": "word-は",
+      "to": "word-は",
+      "sound": "は"
+    },
+    {
+      "from": "word-しんぞう",
+      "to": "word-うさぎ",
+      "sound": "う"
+    },
+    {
+      "from": "word-しんぞう",
+      "to": "word-うし",
+      "sound": "う"
+    },
+    {
+      "from": "word-しんぞう",
+      "to": "word-うま",
+      "sound": "う"
+    },
+    {
+      "from": "word-しんぞう",
+      "to": "word-うでどけい",
+      "sound": "う"
+    },
+    {
+      "from": "word-ごりら",
+      "to": "word-らいおん",
+      "sound": "ら"
+    },
+    {
+      "from": "word-ごりら",
+      "to": "word-ラーメン",
+      "sound": "ら"
+    }
+  ]
+}
